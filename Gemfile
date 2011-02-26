@@ -6,6 +6,7 @@ gem 'mysql2'
 
 gem 'haml-rails'
 gem 'jquery-rails'
+gem 'simple_form'
 
 gem 'ruby-debug'
 
