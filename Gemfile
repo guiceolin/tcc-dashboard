@@ -7,6 +7,7 @@ gem 'mysql2'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'simple_form'
+gem 'inherited_resources', '~> 1.2.1'
 
 gem 'ruby-debug'
 
