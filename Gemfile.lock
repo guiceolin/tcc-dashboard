@@ -34,6 +34,7 @@ GEM
     cgi_multipart_eof_fix (2.5.0)
     columnize (0.3.2)
     daemons (1.1.0)
+    database_cleaner (0.6.5)
     devise (1.1.7)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 1.0.2)
@@ -126,6 +127,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  database_cleaner
   devise
   factory_girl_rails
   haml-rails
