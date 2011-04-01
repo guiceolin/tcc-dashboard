@@ -14,6 +14,11 @@ gem 'ruby-debug'
 
 gem 'rails3-generators'
 
+group :development do
+  gem 'hpricot'
+  gem 'ruby_parser'
+end
+
 group :test, :development do
   gem 'rspec-rails', '~> 2.4'
 end

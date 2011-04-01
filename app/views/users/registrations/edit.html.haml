@@ -1,0 +1,18 @@
+%h2
+  Editar #{User.model_name.human}
+= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+  = devise_error_messages!
+  %fieldset
+    %legend Dados Pessoais
+    = f.input :first_name
+    = f.input :last_name
+  %fieldset
+    %legend Dados de Login 
+    = f.input :email
+    = f.input :password, :hint => "(leave blank if you don't want to change it)"
+    = f.input :password_confirmation
+  = f.input :current_password, :hint => "(we need your current password to confirm your changes)"
+  = f.button :submit
+%h3
+  = link_to "Cancelar Conta", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete
+= link_to "Voltar", :back
