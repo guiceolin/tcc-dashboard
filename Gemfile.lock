@@ -31,6 +31,7 @@ GEM
     arel (2.0.9)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
+    cancan (1.6.4)
     cgi_multipart_eof_fix (2.5.0)
     columnize (0.3.2)
     daemons (1.1.0)
@@ -132,6 +133,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cancan
   database_cleaner
   devise
   factory_girl_rails
