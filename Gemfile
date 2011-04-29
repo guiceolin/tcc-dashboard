@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.7.rc1'#:git => 'git://github.com/rails/rails.git'
+gem 'rails', '3.0.7'#:git => 'git://github.com/rails/rails.git'
 gem 'mongrel'
 gem 'mysql2'
 
