@@ -1,6 +1,4 @@
 Dashboard::Application.routes.draw do
-  devise_for :managers
-
   devise_for :users
 
   root :to => 'desktop#show'
