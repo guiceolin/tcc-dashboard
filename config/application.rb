@@ -26,6 +26,16 @@ module Dashboard
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
 
+    # DEVISE LAYOUTS
+    config.to_prepare do
+      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "devise" }
+
+      Devise::SessionsController.layout      "devise"
+      Devise::ConfirmationsController.layout "devise"
+      Devise::UnlocksController.layout       "devise"            
+      Devise::PasswordsController.layout     "devise"        
+    end
+
     config.generators do |g|
       g.fixture_replacement :factory_girl
     end
