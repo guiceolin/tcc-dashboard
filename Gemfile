@@ -11,6 +11,7 @@ gem 'inherited_resources', '~> 1.2.1'
 gem 'devise'
 gem 'cancan'
 
+gem 'compass', '>= 0.10.6'
 gem 'ruby-debug'
 
 gem 'rails3-generators'

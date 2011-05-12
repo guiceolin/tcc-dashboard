@@ -34,6 +34,8 @@ GEM
     cancan (1.6.4)
     cgi_multipart_eof_fix (2.5.0)
     columnize (0.3.2)
+    compass (0.10.6)
+      haml (>= 3.0.4)
     daemons (1.1.0)
     database_cleaner (0.6.5)
     devise (1.1.7)
@@ -134,6 +136,7 @@ PLATFORMS
 
 DEPENDENCIES
   cancan
+  compass (>= 0.10.6)
   database_cleaner
   devise
   factory_girl_rails
