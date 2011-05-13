@@ -23,7 +23,7 @@ role :app, "ceol.in"
 role :web, "ceol.in"
 role :db,  "ceol.in", :primary => true
 
-after "deploy:update_code", "db:symlink"
+after "deploy:update_code", "db:symlink", "smtp:symlink"
 
 namespace :deploy do
   desc "Restarting mod_rails with restart.txt"
@@ -34,6 +34,13 @@ namespace :deploy do
   [:start, :stop].each do |t|
     desc "#{t} task is a no-op with mod_rails"
     task t, :roles => :app do ; end
+  end
+end
+
+namespace :smtp do
+  desc "Make smtp Symlink"
+  task :symlink do
+    run "ln -nfs #{shared_path}/config/smtp.yml #{release_path}/config/smtp.yml"
   end
 end
 
