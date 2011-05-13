@@ -3,7 +3,7 @@ require "bundler/capistrano"
 # RVM + Capistrano
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require "rvm/capistrano"
-set :rvm_ruby_string, 'ree@dashboard'
+set :rvm_ruby_string, 'ree'
 
 set :application, "Dashboard"
 set :scm, :git
