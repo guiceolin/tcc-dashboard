@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 14, ../../../../../.rvm/gems/ruby-1.8.7-p299@tcc/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+/* line 17, ../../../../../.rvm/gems/ruby-1.8.7-p299@tcc/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+  color: black;
+  background: white;
+}
+
+/* line 19, ../../../../../.rvm/gems/ruby-1.8.7-p299@tcc/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 21, ../../../../../.rvm/gems/ruby-1.8.7-p299@tcc/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+
+/* line 23, ../../../../../.rvm/gems/ruby-1.8.7-p299@tcc/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 25, ../../../../../.rvm/gems/ruby-1.8.7-p299@tcc/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: "" "";
+}
+/* line 96, ../../../../../.rvm/gems/ruby-1.8.7-p299@tcc/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+}
+
+/* line 27, ../../../../../.rvm/gems/ruby-1.8.7-p299@tcc/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 9, ../../app/stylesheets/screen.scss */
+body {
+  background-color: #D6F1FF;
+  font-family: arial, helvetica;
+}
+
+/* line 14, ../../app/stylesheets/screen.scss */
+.login-box {
+  background-color: #fff;
+  margin: 17% auto;
+  padding: 20px;
+  width: 320px;
+  height: 175px;
+  border: 1px solid black;
+  font-size: 17px;
+  -moz-box-shadow: gray 5px 5px 10px 0;
+  -webkit-box-shadow: gray 5px 5px 10px 0;
+  -o-box-shadow: gray 5px 5px 10px 0;
+  box-shadow: gray 5px 5px 10px 0;
+}
+/* line 24, ../../app/stylesheets/screen.scss */
+.login-box input[type="password"], .login-box input[type="text"], .login-box textarea {
+  font-family: Arial, Sans-Serif;
+  font-size: 20px;
+  margin-bottom: 15px;
+  display: block;
+  padding: 6px;
+  border: solid 1px #85b1de;
+  width: 300px;
+}
+/* line 34, ../../app/stylesheets/screen.scss */
+.login-box label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+/* line 39, ../../app/stylesheets/screen.scss */
+.login-box p.remember {
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+/* line 40, ../../app/stylesheets/screen.scss */
+.login-box p.remember label {
+  display: inline;
+  font-weight: normal;
+}
+/* line 48, ../../app/stylesheets/screen.scss */
+.login-box p.submit {
+  float: left;
+}
+/* line 51, ../../app/stylesheets/screen.scss */
+.login-box p.forget {
+  float: right;
+  font-size: 11px;
+}

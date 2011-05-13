@@ -1,0 +1,56 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset"
+@import "compass/css3"
+
+body 
+  background-color: #D6F1FF 
+  font-family: arial, helvetica
+
+.login-box 
+  background-color: #fff
+  margin: 17% auto
+  padding: 20px
+  width: 320px
+  height: 175px
+  border: 1px solid black
+  font-size: 17px
+
+  @include box-shadow( gray , 5px, 5px, 10px)
+  input[type="password"], input[type="text"], textarea 
+    font:
+      family: Arial, Sans-Serif
+      size: 20px
+    margin-bottom: 15px
+    display: block
+    padding: 6px
+    border: solid 1px #85b1de
+    width: 300px
+
+  label 
+    display: block
+    font-weight: bold
+    margin-bottom: 2px
+ 
+  p.remember 
+    label 
+      display: inline
+      font-weight: normal
+
+    font-size: 12px 
+    margin:
+      top: -10px
+      bottom: 10px
+
+  p.submit 
+    float: left
+  
+  p.forget 
+    float: right
+    font-size: 11px
+  
+
+
