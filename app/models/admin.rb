@@ -1,3 +1,3 @@
-class Admin < User
+class Admin < Manager
 
 end

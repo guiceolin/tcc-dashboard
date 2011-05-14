@@ -1,3 +1,3 @@
-class Manager < User
+class Manager < Member
 
 end
