@@ -1,5 +1,7 @@
 Dashboard::Application.routes.draw do
-  devise_for :users
+  devise_for :members, :skip => :sessions
+  devise_for :users#,   :only => :sessions
+  resources :projects
 
   root :to => 'desktop#show'
   # The priority is based upon order of creation:
