@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
 
   has_many :memberships
- 
-  devise :database_authenticatable, :recoverable
+
   # Setup accessible (or protected) attributes for your model
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :first_name, :last_name
 
