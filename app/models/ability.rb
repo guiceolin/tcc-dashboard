@@ -5,7 +5,9 @@ class Ability
     cannot :manage, :all
     can :manage, :all if user.is_a? Admin
 
-    can(:manage, ::Project) { |p| user.managed_projects.include? p }
+    if user.is_a? Manager
+      can(:manage, ::Project) { |p| user.managed_projects.include? p }
+    end
     can(:read, ::Project) { |p| p.members.include?(user) }
 
     # Define abilities for the passed in user here. For example:
