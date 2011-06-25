@@ -3,6 +3,9 @@ Dashboard::Application.routes.draw do
 
   devise_for :users
   resources :projects
+  #resources :roles
+  get 'roles/:id' => 'roles#edit', :as => :edit_role
+  put 'roles/:id' => 'roles#update', :as => :edit_role
 
   root :to => 'home#home'
   # The priority is based upon order of creation:
