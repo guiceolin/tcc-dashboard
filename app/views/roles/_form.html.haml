@@ -1,0 +1,6 @@
+= form_for(@user, :url => edit_role_path ) do |f|
+  .inputs
+    = select :user, 'type', %w(Admin Manager Member)
+
+  .actions
+    = f.submit
