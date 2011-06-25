@@ -1,10 +1,10 @@
 Dashboard::Application.routes.draw do
-  get "home/desktop"
+  get 'desktop/' => 'home#desktop'
 
   devise_for :users
   resources :projects
 
-  root :to => 'home#desktop'
+  root :to => 'home#home'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
