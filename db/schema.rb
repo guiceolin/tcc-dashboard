@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(:version => 20110520172228) do
     t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "roles_mask"
     t.string   "type",                                :default => "Member", :null => false
   end
 
