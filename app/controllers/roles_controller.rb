@@ -1,11 +1,13 @@
 class RolesController < ApplicationController
+
   def edit
     @user = User.find(params[:id])
+    authorize! :edit, @user
   end
 
   def update
     @user = User.find(params[:id])
-    debugger
+    authorize! :edit, @user
     @user.type = params[:user][:type]
     respond_to do |format|
       if @user.save
