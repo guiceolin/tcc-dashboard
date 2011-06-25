@@ -1,0 +1,21 @@
+.projects
+  %p Projetos - Membro
+  - @projects.each do |project|
+    .project
+      %p
+        = project.id
+        = project.name
+      %p.links
+        = link_to 'editar', edit_project_path(project)
+        = link_to 'apagar', { :controller => 'projects', :action => :destroy, :id => project } , :method => :delete, :confirm => 'Tem Certeza?' if can? :destroy, project
+
+  - if @managed_projects
+    %p Projetos - Gerente
+    - @managed_projects.each do |managed|
+      .managed_project.project
+        = managed.id
+        = managed.name
+        %p.links
+          = link_to 'editar', edit_project_path(managed) if can? :edit, managed
+          = link_to 'apagar', { :controller => 'projects', :action => :destroy, :id => managed } , :method => :delete, :confirm => 'Tem Certeza?' if can? :destroy, managed
+
