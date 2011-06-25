@@ -5,8 +5,8 @@ pt-BR:
       already_confirmed: 'já foi confirmado'
       not_locked: 'não foi bloqueado'
       not_saved:
-        one: '1 erro impediu que %{model} fosse gravado:'
-        other: '%{count} erros impediram que %{model} fosse gravado:'
+        one: '1 erro impediu que %{resource} fosse gravado:'
+        other: '%{count} erros impediram que %{resource} fosse gravado:'
 
   devise:
     failure:
