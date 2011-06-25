@@ -1,4 +1,6 @@
 Dashboard::Application.routes.draw do
+  get "users" => 'users#index'
+
   get 'desktop/' => 'home#desktop'
 
   devise_for :users
