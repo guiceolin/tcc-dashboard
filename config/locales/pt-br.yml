@@ -1,6 +1,10 @@
 # encoding: UTF-8
 # pt-BR translations for Ruby on Rails
 "pt-BR":
+
+  sign_in: 'Entrar'
+  sign_up: 'Registrar'
+
   # formatos de data e hora
   date:
     formats:
