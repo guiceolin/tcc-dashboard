@@ -6,8 +6,8 @@
 @import "compass/reset"
 @import "compass/css3"
 
-body 
-  background-color: #D6F1FF 
+body
+  background-color: #D6F1FF
   font-family: arial, helvetica
 
 .registration-box
@@ -22,7 +22,7 @@ body
     font:
       size: 48px
       weight: bold
-    letter-spacing: -2px 
+    letter-spacing: -2px
 
   p.subtitle
 
@@ -34,7 +34,7 @@ body
       left: 5px
 
   @include box-shadow( gray , 5px, 5px, 10px)
-  input[type="password"], input[type="text"], input[type="email"],  textarea 
+  input[type="password"], input[type="text"], input[type="email"],  textarea
     font:
       family: Arial, Sans-Serif
       size: 20px
@@ -44,31 +44,70 @@ body
     border: solid 1px #85b1de
     width: 300px
 
-  label 
+  label
     display: block
     font-weight: bold
     margin-bottom: 2px
- 
-  p.remember 
-    label 
+
+  p.remember
+    label
       display: inline
       font-weight: normal
 
-    font-size: 12px 
+    font-size: 12px
     margin:
       top: -10px
       bottom: 10px
 
-  p.submit 
+  p.submit
     float: left
-  
-  p.forget 
+  p.forget
     float: right
     font-size: 11px
-  
 
+.password-box
+  background-color: #fff
+  margin: 5% auto
+  padding: 20px
+  width: 320px
+  border: 1px solid black
+  font-size: 17px
 
-.login-box 
+  h2
+    font:
+      size: 30px
+      weight: bold
+    letter-spacing: -2px
+
+  p.subtitle
+
+    color: grey
+    font:
+      size: 10px
+    margin:
+      bottom: 20px
+      left: 5px
+
+  @include box-shadow( gray , 5px, 5px, 10px)
+  input[type="email"]
+    font:
+      family: Arial, Sans-Serif
+      size: 20px
+    margin-bottom: 15px
+    display: block
+    padding: 6px
+    border: solid 1px #85b1de
+    width: 300px
+
+  label
+    display: block
+    font-weight: bold
+    margin-bottom: 2px
+
+  p.submit
+    float: left
+
+.login-box
   background-color: #fff
   margin: 17% auto
   padding: 20px
@@ -78,7 +117,7 @@ body
   font-size: 17px
 
   @include box-shadow( gray , 5px, 5px, 10px)
-  input[type="password"], input[type="text"], textarea 
+  input[type="password"], input[type="text"], textarea
     font:
       family: Arial, Sans-Serif
       size: 20px
@@ -88,27 +127,27 @@ body
     border: solid 1px #85b1de
     width: 300px
 
-  label 
+  label
     display: block
     font-weight: bold
     margin-bottom: 2px
- 
-  p.remember 
-    label 
+
+  p.remember
+    label
       display: inline
       font-weight: normal
 
-    font-size: 12px 
+    font-size: 12px
     margin:
       top: -10px
       bottom: 10px
 
-  p.submit 
+  p.submit
     float: left
-  
-  p.forget 
+
+  p.forget
     float: right
     font-size: 11px
-  
+
 
 
