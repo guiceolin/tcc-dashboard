@@ -1,0 +1,17 @@
+development:
+  address: smtp.gmail.com
+  port: 587
+  domain: 'baci.lindsaar.net'
+  user_name: '<username>'
+  password: '<password>'
+  authentication: 'plain'
+  enable_starttls_auto: true
+production:
+  tls: true
+  enable_starttls_auto: true
+  address: 'smtp.gmail.com'
+  port: 587
+  domain: 'ceol.in'
+  user_name: 'no-reply@ceol.in'
+  password: 'password'
+  authentication: 'plain'
