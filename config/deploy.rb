@@ -9,6 +9,7 @@ set :application, "Dashboard"
 set :scm, :git
 
 set :deploy_to, "/var/www/tcc"
+set :keep_releases, 5
 
 set :scm, :git
 set :user, 'tcc'
@@ -18,7 +19,7 @@ set :deploy_via, :remote_cache
 
 set :use_sudo, false
 default_run_options[:pty] = true
- 
+
 role :app, "ceol.in"
 role :web, "ceol.in"
 role :db,  "ceol.in", :primary => true
@@ -45,8 +46,8 @@ namespace :smtp do
 end
 
 namespace :db do
-  desc "Make symlink for database yaml" 
+  desc "Make symlink for database yaml"
   task :symlink do
-    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml" 
+    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
 end
