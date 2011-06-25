@@ -7,6 +7,9 @@ Dashboard::Application.routes.draw do
   get 'roles/:id' => 'roles#edit', :as => :edit_role
   put 'roles/:id' => 'roles#update', :as => :edit_role
 
+  authenticate :user do
+    root :to => 'home#desktop'
+  end
   root :to => 'home#home'
   # The priority is based upon order of creation:
   # first created -> highest priority.
