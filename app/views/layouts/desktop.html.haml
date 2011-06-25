@@ -8,12 +8,5 @@
     = javascript_include_tag :defaults
     = csrf_meta_tag
   %body
-    .up-bar
-      - if flash[:notice]
-        %p.notice= notice
-      - if flash[:alert]
-        %p.alert= alert
-      %p.user-info
-        = current_user
-        = link_to t('sign_out'), destroy_user_session_path
+    = render :partial => 'shared/up_bar'
     = yield

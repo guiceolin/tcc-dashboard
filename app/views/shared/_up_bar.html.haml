@@ -1,0 +1,8 @@
+.up-bar
+  - if flash[:notice]
+    %p.notice= notice
+  - if flash[:alert]
+    %p.alert= alert
+  %p.user-info
+    = current_user
+    = link_to t('sign_out'), destroy_user_session_path
