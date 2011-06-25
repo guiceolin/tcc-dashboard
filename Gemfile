@@ -16,6 +16,8 @@ gem 'ruby-debug'
 
 gem 'rails3-generators'
 
+gem 'newrelic_rpm'
+
 group :development do
   gem 'hpricot'
   gem 'ruby_parser'

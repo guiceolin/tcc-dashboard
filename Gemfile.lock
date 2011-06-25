@@ -80,6 +80,7 @@ GEM
       fastthread (>= 1.0.1)
       gem_plugin (>= 0.2.3)
     mysql2 (0.2.11)
+    newrelic_rpm (3.1.0)
     orm_adapter (0.0.5)
     polyglot (0.3.1)
     rack (1.2.3)
@@ -151,6 +152,7 @@ DEPENDENCIES
   jquery-rails
   mongrel
   mysql2 (< 0.3)
+  newrelic_rpm
   rails (= 3.0.9)
   rails3-generators
   rspec-rails (~> 2.4)
