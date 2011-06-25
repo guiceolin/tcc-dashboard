@@ -1,13 +1,13 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.7'#:git => 'git://github.com/rails/rails.git'
+gem 'rails', '3.0.9'#:git => 'git://github.com/rails/rails.git'
 gem 'mongrel'
-gem 'mysql2'
+gem 'mysql2', '< 0.3'
 
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'simple_form'
-gem 'inherited_resources', '~> 1.2.1'
+#gem 'inherited_resources', '~> 1.2.1'
 gem 'devise'
 gem 'cancan'
 
