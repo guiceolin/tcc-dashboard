@@ -3,19 +3,19 @@
   - @projects.each do |project|
     .project
       %p
-        = project.id
-        = project.name
+        = link_to project.name, project
       %p.links
         = link_to 'editar', edit_project_path(project)
         = link_to 'apagar', { :controller => 'projects', :action => :destroy, :id => project } , :method => :delete, :confirm => 'Tem Certeza?' if can? :destroy, project
+        = link_to "membros", users_project_path(project)
 
   - if @managed_projects
     %p Projetos - Gerente
     - @managed_projects.each do |managed|
       .managed_project.project
-        = managed.id
-        = managed.name
+        = link_to managed.name, managed
         %p.links
           = link_to 'editar', edit_project_path(managed) if can? :edit, managed
           = link_to 'apagar', { :controller => 'projects', :action => :destroy, :id => managed } , :method => :delete, :confirm => 'Tem Certeza?' if can? :destroy, managed
+        = link_to "membros", users_project_path(managed)
 
