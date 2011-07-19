@@ -8,8 +8,8 @@ describe User do
   it { should allow_mass_assignment_of :last_name }
 
   context '#full_name' do
-    let(:user) { Factory :member , :first_name => 'John', :last_name => 'Locke' }
+    let(:user) { Fabricate :member , :first_name => 'John', :last_name => 'Locke' }
     subject { user.full_name }
-    it { should == 'John Locke' } 
+    it { should == 'John Locke' }
   end
 end

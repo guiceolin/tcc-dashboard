@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Membership do
-  let(:membership) { Factory :membership } 
+  let(:membership) { Fabricate :membership }
   subject { membership }
   it { should validate_uniqueness_of(:user_id).scoped_to(:project_id) }
   it { should belong_to(:user) }
