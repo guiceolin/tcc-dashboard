@@ -32,12 +32,13 @@ module Dashboard
 
       Devise::SessionsController.layout      "devise"
       Devise::ConfirmationsController.layout "devise"
-      Devise::UnlocksController.layout       "devise"            
-      Devise::PasswordsController.layout     "devise"        
+      Devise::UnlocksController.layout       "devise"
+      Devise::PasswordsController.layout     "devise"
     end
 
     config.generators do |g|
-      g.fixture_replacement :factory_girl
+      g.test_framework      :rspec, :fixture => true
+      g.fixture_replacement :fabrication
     end
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.

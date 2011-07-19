@@ -28,7 +28,8 @@ group :test, :development do
 end
 
 group :test do
-  gem 'factory_girl_rails'
+  #gem 'factory_girl_rails'
+  gem 'fabrication'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
 end
