@@ -4,7 +4,9 @@ Dashboard::Application.routes.draw do
   get 'desktop/' => 'home#desktop'
 
   devise_for :users
-  resources :projects
+  resources :projects do
+    get 'users', :on => :member
+  end
   #resources :roles
   get 'roles/:id' => 'roles#edit', :as => :edit_role
   put 'roles/:id' => 'roles#update', :as => :edit_role

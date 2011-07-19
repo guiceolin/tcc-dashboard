@@ -39,7 +39,7 @@ class ProjectsController < ActionController::Base
 
 
   def create
-    @project = Project.new(params[:project]) 
+    @project = Project.new(params[:project])
     current_user.associate_managed_project(@project)
      respond_to do |format|
       if @project.save
@@ -65,7 +65,21 @@ class ProjectsController < ActionController::Base
         format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
       end
     end
-  end
+   end
 
+   def destroy
+     @project = Project.find(params[:id])
+     @project.destroy
 
+     respond_to do |format|
+       format.html { redirect_to(root_url) }
+       format.xml  { head :ok }
+     end
+   end
+
+   def users
+     @project  = Project.find(params[:id])
+     @members  = @project.members
+     @managers = @project.managers
+   end
 end
