@@ -6,8 +6,9 @@ class Ability
     can :manage, :all if user.is_a? Admin
 
     if user.is_a? Manager
-      can :create, ::Project
-      can(:manage, ::Project) { |p| user.managed_projects.include? p }
+      can :create,       ::Project
+      can(:manage,       ::Project) { |p| user.managed_projects.include? p }
+      can :manage_users, ::Project
     end
     if user.is_a? Member
       can(:read, ::Project) { |p| p.members.include?(user) }

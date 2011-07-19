@@ -11,11 +11,12 @@
 
   .inputs
     = f.input :name
-    -# @TODO Trocar isso por um ajax.
-    %p Membros
-    = f.collection_check_boxes :member_ids, User.all - @project.managers, :id, :to_s
-    %p Managers
-    = f.collection_check_boxes :member_ids, User.all - @project.members - current_user.to_a, :id, :to_s
+    -  if can? :manage_users, @project
+      -# @TODO Trocar isso por um ajax.
+      %p Membros
+      = f.collection_check_boxes :member_ids, User.all - @project.managers, :id, :to_s
+      %p Managers
+      = f.collection_check_boxes :member_ids, User.all - @project.members - current_user.to_a, :id, :to_s
 
   .actions
     = f.button :submit
