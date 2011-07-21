@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
   has_many :memberships
+  has_many :tasks
 
   # Setup accessible (or protected) attributes for your model
   devise :database_authenticatable, :registerable,
