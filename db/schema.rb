@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110520172228) do
+ActiveRecord::Schema.define(:version => 20110719231802) do
 
   create_table "memberships", :force => true do |t|
     t.integer  "user_id"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(:version => 20110520172228) do
 
   create_table "projects", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tasks", :force => true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "project_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -42,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20110520172228) do
     t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
+    t.integer  "roles_mask"
     t.string   "type",                                :default => "Member", :null => false
   end
 
