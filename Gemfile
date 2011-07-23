@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.9'#:git => 'git://github.com/rails/rails.git'
-gem 'mongrel'
 gem 'mysql2', '< 0.3'
 
 gem 'haml-rails'
@@ -12,7 +11,6 @@ gem 'devise'
 gem 'cancan'
 
 gem 'compass', '>= 0.10.6'
-gem 'ruby-debug'
 
 gem 'rails3-generators'
 
@@ -30,7 +28,7 @@ end
 group :test do
   gem 'fabrication'
   gem 'database_cleaner'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '~> 1.0.0.beta3'
 end
 
 
