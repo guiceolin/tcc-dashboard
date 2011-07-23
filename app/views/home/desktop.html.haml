@@ -1,21 +1,22 @@
 .projects
-  %p Projetos - Membro
-  - @projects.each do |project|
-    .project
-      %p
-        = link_to project.name, project
-      %p.links
-        = link_to 'editar', edit_project_path(project)
-        = link_to 'apagar', { :controller => 'projects', :action => :destroy, :id => project } , :method => :delete, :confirm => 'Tem Certeza?' if can? :destroy, project
-        = link_to "membros", users_project_path(project)
+  - if @projects.present?
+    %p Projetos - Membro
+    - @projects.each do |project|
+      .project
+        %p
+          = link_to project.name, project
+        %p.links
+          = link_to image_tag('icons/application_edit.png'), edit_project_path(project), :title => 'Editar Projeto'
+          = link_to image_tag('icons/group.png'), users_project_path(project), :title => 'Membros'
+          = link_to image_tag('icons/bin.png'), { :controller => 'projects', :action => :destroy, :id => project } , :method => :delete, :confirm => 'Tem Certeza?', :title => 'Excluir projeto' if can? :destroy, project
 
-  - if @managed_projects
-    %p Projetos - Gerente
-    - @managed_projects.each do |managed|
-      .managed_project.project
+  - if @managed_projects.present?
+    %p.header Projetos - Gerente
+    - @managed_projects.each_with_index do |managed, index|
+      .managed_project.project{:class => [index == 0 && "first", cycle("even", "odd")]}
         = link_to managed.name, managed
         %p.links
-          = link_to 'editar', edit_project_path(managed) if can? :edit, managed
-          = link_to 'apagar', { :controller => 'projects', :action => :destroy, :id => managed } , :method => :delete, :confirm => 'Tem Certeza?' if can? :destroy, managed
-        = link_to "membros", users_project_path(managed)
+          = link_to image_tag('icons/application_edit.png'), edit_project_path(managed), :title => 'Editar projeto' if can? :edit, managed
+          = link_to image_tag('icons/group.png'), users_project_path(managed), :title => 'Membros'
+          = link_to image_tag('icons/bin.png'), { :controller => 'projects', :action => :destroy, :id => managed } , :method => :delete, :confirm => 'Tem Certeza?', :title => 'Excluir projeto' if can? :destroy, managed
 
