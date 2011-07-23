@@ -5,3 +5,5 @@ tmp/
 config/database.yml
 public/**/*.css
 config/smtp.yml
+vendor/ruby
+bin
