@@ -7,5 +7,5 @@
         \ Gerente?
         = membership.manager
       %td
-        = link_to "Editar", edit_project_membership_path(membership.project,membership)
-        = link_to "Excluir", { :controller => :memberships, :action => :destroy, :id => membership }, :method => :delete, :confirm => 'Tem certeza?'
+        = link_to "Editar", edit_project_membership_path(membership.project,membership) if can? :edit, membership
+        = link_to "Excluir", { :controller => :memberships, :action => :destroy, :id => membership }, :method => :delete, :confirm => 'Tem certeza?' if can? :destroy, membership
