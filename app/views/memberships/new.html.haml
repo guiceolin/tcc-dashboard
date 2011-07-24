@@ -1,0 +1,8 @@
+- form_for @membership, :url => project_memberships_path, :method => :put do |f|
+  = select_tag "membership[user_id]", options_from_collection_for_select(User.all, "id", "to_s")
+  %br
+  = check_box_tag 'membership[manager]'
+  Gerente?
+  %br
+  = f.submit
+

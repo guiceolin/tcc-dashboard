@@ -1,0 +1,11 @@
+%table
+  - @memberships.each do |membership|
+    %tr
+      %td
+        = membership.user.full_name
+      %td
+        \ Gerente?
+        = membership.manager
+      %td
+        = link_to "Editar", edit_project_membership_path(membership.project,membership)
+        = link_to "Excluir", { :controller => :memberships, :action => :destroy, :id => membership }, :method => :delete, :confirm => 'Tem certeza?'
