@@ -1,8 +1,13 @@
-- form_for @membership, :url => project_memberships_path, :method => :put do |f|
-  = select_tag "membership[user_id]", options_from_collection_for_select(User.all, "id", "to_s")
-  %br
-  = check_box_tag 'membership[manager]'
-  Gerente?
-  %br
-  = f.submit
+.add-membership
+  %h1
+    Adicionar membro -
+    = @project.name
+  .form
+    - form_for @membership, :url => project_memberships_path, :method => :put do |f|
+
+      = select_tag "membership[user_id]", options_from_collection_for_select(User.all - @project.colaborators, "id", "to_s")
+      Gerente?
+      = check_box_tag 'membership[manager]'
+      %br
+      = f.submit 'Adicionar!'
 

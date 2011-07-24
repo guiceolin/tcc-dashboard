@@ -74,6 +74,27 @@ body {
 }
 
 /* line 13, ../../app/stylesheets/screen.sass */
+.add-membership {
+  margin: 14% auto;
+  width: 50%;
+}
+/* line 17, ../../app/stylesheets/screen.sass */
+.add-membership h1 {
+  padding-bottom: 30px;
+}
+/* line 20, ../../app/stylesheets/screen.sass */
+.add-membership input.bottom {
+  float: right;
+}
+
+/* line 25, ../../app/stylesheets/screen.sass */
+h1 {
+  font-size: 38px;
+  font-weight: bold;
+  letter-spacing: -2px;
+}
+
+/* line 31, ../../app/stylesheets/screen.sass */
 .registration-box {
   background-color: white;
   margin: 5% auto;
@@ -86,20 +107,20 @@ body {
   -o-box-shadow: 5px 5px 10px gray;
   box-shadow: 5px 5px 10px gray;
 }
-/* line 21, ../../app/stylesheets/screen.sass */
+/* line 39, ../../app/stylesheets/screen.sass */
 .registration-box h2 {
   font-size: 48px;
   font-weight: bold;
   letter-spacing: -2px;
 }
-/* line 27, ../../app/stylesheets/screen.sass */
+/* line 45, ../../app/stylesheets/screen.sass */
 .registration-box p.subtitle {
   color: grey;
   font-size: 10px;
   margin-bottom: 20px;
   margin-left: 5px;
 }
-/* line 37, ../../app/stylesheets/screen.sass */
+/* line 55, ../../app/stylesheets/screen.sass */
 .registration-box input[type="password"], .registration-box input[type="text"], .registration-box input[type="email"], .registration-box textarea {
   font-family: Arial, Sans-Serif;
   font-size: 20px;
@@ -109,34 +130,34 @@ body {
   border: solid 1px #85b1de;
   width: 300px;
 }
-/* line 47, ../../app/stylesheets/screen.sass */
+/* line 65, ../../app/stylesheets/screen.sass */
 .registration-box label {
   display: block;
   font-weight: bold;
   margin-bottom: 2px;
 }
-/* line 52, ../../app/stylesheets/screen.sass */
+/* line 70, ../../app/stylesheets/screen.sass */
 .registration-box p.remember {
   font-size: 12px;
   margin-top: -10px;
   margin-bottom: 10px;
 }
-/* line 53, ../../app/stylesheets/screen.sass */
+/* line 71, ../../app/stylesheets/screen.sass */
 .registration-box p.remember label {
   display: inline;
   font-weight: normal;
 }
-/* line 62, ../../app/stylesheets/screen.sass */
+/* line 80, ../../app/stylesheets/screen.sass */
 .registration-box p.submit {
   float: left;
 }
-/* line 64, ../../app/stylesheets/screen.sass */
+/* line 82, ../../app/stylesheets/screen.sass */
 .registration-box p.forget {
   float: right;
   font-size: 11px;
 }
 
-/* line 68, ../../app/stylesheets/screen.sass */
+/* line 86, ../../app/stylesheets/screen.sass */
 .password-box {
   background-color: white;
   margin: 5% auto;
@@ -149,20 +170,20 @@ body {
   -o-box-shadow: 5px 5px 10px gray;
   box-shadow: 5px 5px 10px gray;
 }
-/* line 76, ../../app/stylesheets/screen.sass */
+/* line 94, ../../app/stylesheets/screen.sass */
 .password-box h2 {
   font-size: 30px;
   font-weight: bold;
   letter-spacing: -2px;
 }
-/* line 82, ../../app/stylesheets/screen.sass */
+/* line 100, ../../app/stylesheets/screen.sass */
 .password-box p.subtitle {
   color: grey;
   font-size: 10px;
   margin-bottom: 20px;
   margin-left: 5px;
 }
-/* line 92, ../../app/stylesheets/screen.sass */
+/* line 110, ../../app/stylesheets/screen.sass */
 .password-box input[type="email"] {
   font-family: Arial, Sans-Serif;
   font-size: 20px;
@@ -172,18 +193,18 @@ body {
   border: solid 1px #85b1de;
   width: 300px;
 }
-/* line 102, ../../app/stylesheets/screen.sass */
+/* line 120, ../../app/stylesheets/screen.sass */
 .password-box label {
   display: block;
   font-weight: bold;
   margin-bottom: 2px;
 }
-/* line 107, ../../app/stylesheets/screen.sass */
+/* line 125, ../../app/stylesheets/screen.sass */
 .password-box p.submit {
   float: left;
 }
 
-/* line 110, ../../app/stylesheets/screen.sass */
+/* line 128, ../../app/stylesheets/screen.sass */
 .login-box {
   background-color: white;
   margin: 17% auto;
@@ -197,7 +218,7 @@ body {
   -o-box-shadow: 5px 5px 10px gray;
   box-shadow: 5px 5px 10px gray;
 }
-/* line 120, ../../app/stylesheets/screen.sass */
+/* line 138, ../../app/stylesheets/screen.sass */
 .login-box input[type="password"], .login-box input[type="text"], .login-box textarea {
   font-family: Arial, Sans-Serif;
   font-size: 20px;
@@ -207,28 +228,28 @@ body {
   border: solid 1px #85b1de;
   width: 300px;
 }
-/* line 130, ../../app/stylesheets/screen.sass */
+/* line 148, ../../app/stylesheets/screen.sass */
 .login-box label {
   display: block;
   font-weight: bold;
   margin-bottom: 2px;
 }
-/* line 135, ../../app/stylesheets/screen.sass */
+/* line 153, ../../app/stylesheets/screen.sass */
 .login-box p.remember {
   font-size: 12px;
   margin-top: -10px;
   margin-bottom: 10px;
 }
-/* line 136, ../../app/stylesheets/screen.sass */
+/* line 154, ../../app/stylesheets/screen.sass */
 .login-box p.remember label {
   display: inline;
   font-weight: normal;
 }
-/* line 145, ../../app/stylesheets/screen.sass */
+/* line 163, ../../app/stylesheets/screen.sass */
 .login-box p.submit {
   float: left;
 }
-/* line 148, ../../app/stylesheets/screen.sass */
+/* line 166, ../../app/stylesheets/screen.sass */
 .login-box p.forget {
   float: right;
   font-size: 11px;
