@@ -1,4 +1,4 @@
-- form_for @membership, :url => project_memberships_path, :method => :put do |f|
+- form_for @membership, :url => {:controller => :memberships, :action => :update, :project_id => @membership.project }, :method => :put do |f|
   = @membership.user.full_name
   %br
   = check_box_tag 'manager', 'Gerente?'
