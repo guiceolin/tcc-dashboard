@@ -10,7 +10,7 @@ class Ability
       can(:manage,       ::Project) { |p| user.managed_projects.include? p }
       can :manage_users, ::Project
 
-      can(:manage,       ::Membership) { |m| m.project.members.include? user}
+      can(:manage,       ::Membership) { |m| m.project.managers.include? user}
     end
     if user.is_a? Member
       can(:read, ::Project) { |p| p.members.include?(user) }
