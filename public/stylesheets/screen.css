@@ -1,66 +1,70 @@
-@charset "UTF-8";
 /* Welcome to Compass.
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 14, ../../../../../.rvm/gems/ruby-1.8.7-p299@tcc/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../vendor/ruby/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
+del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  outline: 0;
-  font-weight: inherit;
-  font-style: inherit;
   font-size: 100%;
-  font-family: inherit;
+  font: inherit;
   vertical-align: baseline;
 }
 
-/* line 17, ../../../../../.rvm/gems/ruby-1.8.7-p299@tcc/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 20, ../../vendor/ruby/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 body {
   line-height: 1;
-  color: black;
-  background: white;
 }
 
-/* line 19, ../../../../../.rvm/gems/ruby-1.8.7-p299@tcc/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../vendor/ruby/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 21, ../../../../../.rvm/gems/ruby-1.8.7-p299@tcc/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../vendor/ruby/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
-  border-collapse: separate;
+  border-collapse: collapse;
   border-spacing: 0;
-  vertical-align: middle;
 }
 
-/* line 23, ../../../../../.rvm/gems/ruby-1.8.7-p299@tcc/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../vendor/ruby/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 25, ../../../../../.rvm/gems/ruby-1.8.7-p299@tcc/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../vendor/ruby/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
-  quotes: "" "";
+  quotes: none;
 }
-/* line 96, ../../../../../.rvm/gems/ruby-1.8.7-p299@tcc/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 101, ../../vendor/ruby/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
+  content: none;
 }
 
-/* line 27, ../../../../../.rvm/gems/ruby-1.8.7-p299@tcc/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../vendor/ruby/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
+}
+
+/* line 114, ../../vendor/ruby/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
 }
 
 /* line 9, ../../app/stylesheets/screen.sass */
@@ -77,10 +81,10 @@ body {
   width: 320px;
   border: 1px solid black;
   font-size: 17px;
-  -moz-box-shadow: gray 5px 5px 10px 0;
-  -webkit-box-shadow: gray 5px 5px 10px 0;
-  -o-box-shadow: gray 5px 5px 10px 0;
-  box-shadow: gray 5px 5px 10px 0;
+  -moz-box-shadow: 5px 5px 10px gray;
+  -webkit-box-shadow: 5px 5px 10px gray;
+  -o-box-shadow: 5px 5px 10px gray;
+  box-shadow: 5px 5px 10px gray;
 }
 /* line 21, ../../app/stylesheets/screen.sass */
 .registration-box h2 {
@@ -126,13 +130,60 @@ body {
 .registration-box p.submit {
   float: left;
 }
-/* line 65, ../../app/stylesheets/screen.sass */
+/* line 64, ../../app/stylesheets/screen.sass */
 .registration-box p.forget {
   float: right;
   font-size: 11px;
 }
 
-/* line 71, ../../app/stylesheets/screen.sass */
+/* line 68, ../../app/stylesheets/screen.sass */
+.password-box {
+  background-color: white;
+  margin: 5% auto;
+  padding: 20px;
+  width: 320px;
+  border: 1px solid black;
+  font-size: 17px;
+  -moz-box-shadow: 5px 5px 10px gray;
+  -webkit-box-shadow: 5px 5px 10px gray;
+  -o-box-shadow: 5px 5px 10px gray;
+  box-shadow: 5px 5px 10px gray;
+}
+/* line 76, ../../app/stylesheets/screen.sass */
+.password-box h2 {
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: -2px;
+}
+/* line 82, ../../app/stylesheets/screen.sass */
+.password-box p.subtitle {
+  color: grey;
+  font-size: 10px;
+  margin-bottom: 20px;
+  margin-left: 5px;
+}
+/* line 92, ../../app/stylesheets/screen.sass */
+.password-box input[type="email"] {
+  font-family: Arial, Sans-Serif;
+  font-size: 20px;
+  margin-bottom: 15px;
+  display: block;
+  padding: 6px;
+  border: solid 1px #85b1de;
+  width: 300px;
+}
+/* line 102, ../../app/stylesheets/screen.sass */
+.password-box label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+/* line 107, ../../app/stylesheets/screen.sass */
+.password-box p.submit {
+  float: left;
+}
+
+/* line 110, ../../app/stylesheets/screen.sass */
 .login-box {
   background-color: white;
   margin: 17% auto;
@@ -141,12 +192,12 @@ body {
   height: 175px;
   border: 1px solid black;
   font-size: 17px;
-  -moz-box-shadow: gray 5px 5px 10px 0;
-  -webkit-box-shadow: gray 5px 5px 10px 0;
-  -o-box-shadow: gray 5px 5px 10px 0;
-  box-shadow: gray 5px 5px 10px 0;
+  -moz-box-shadow: 5px 5px 10px gray;
+  -webkit-box-shadow: 5px 5px 10px gray;
+  -o-box-shadow: 5px 5px 10px gray;
+  box-shadow: 5px 5px 10px gray;
 }
-/* line 81, ../../app/stylesheets/screen.sass */
+/* line 120, ../../app/stylesheets/screen.sass */
 .login-box input[type="password"], .login-box input[type="text"], .login-box textarea {
   font-family: Arial, Sans-Serif;
   font-size: 20px;
@@ -156,28 +207,28 @@ body {
   border: solid 1px #85b1de;
   width: 300px;
 }
-/* line 91, ../../app/stylesheets/screen.sass */
+/* line 130, ../../app/stylesheets/screen.sass */
 .login-box label {
   display: block;
   font-weight: bold;
   margin-bottom: 2px;
 }
-/* line 96, ../../app/stylesheets/screen.sass */
+/* line 135, ../../app/stylesheets/screen.sass */
 .login-box p.remember {
   font-size: 12px;
   margin-top: -10px;
   margin-bottom: 10px;
 }
-/* line 97, ../../app/stylesheets/screen.sass */
+/* line 136, ../../app/stylesheets/screen.sass */
 .login-box p.remember label {
   display: inline;
   font-weight: normal;
 }
-/* line 106, ../../app/stylesheets/screen.sass */
+/* line 145, ../../app/stylesheets/screen.sass */
 .login-box p.submit {
   float: left;
 }
-/* line 109, ../../app/stylesheets/screen.sass */
+/* line 148, ../../app/stylesheets/screen.sass */
 .login-box p.forget {
   float: right;
   font-size: 11px;
