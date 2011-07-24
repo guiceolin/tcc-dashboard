@@ -8,6 +8,7 @@ class MembershipsController < ApplicationController
 
   def new
     @membership = Membership.new
+    @project    = Project.find(params[:project_id])
   end
 
   def create
