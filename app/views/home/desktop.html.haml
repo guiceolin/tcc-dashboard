@@ -1,8 +1,8 @@
 .projects
   - if @projects.present?
-    %p Projetos - Membro
-    - @projects.each do |project|
-      .project
+    %p.header Projetos - Membro
+    - @projects.each_with_index do |project,index|
+      .project{:class => [index == 0 && "first", cycle("even", "odd")]}
         %p
           = link_to project.name, project
         %p.links
