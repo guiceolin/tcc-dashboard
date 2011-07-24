@@ -6,6 +6,7 @@ Dashboard::Application.routes.draw do
   devise_for :users
   resources :projects do
     get 'users', :on => :member
+    resources :memberships
   end
   #resources :roles
   get 'roles/:id' => 'roles#edit', :as => :edit_role
