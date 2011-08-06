@@ -5,6 +5,7 @@ class CreateTasks < ActiveRecord::Migration
       t.date :end_date
       t.references :project
       t.references :user
+      t.string :description
 
       t.timestamps
     end

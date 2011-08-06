@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20110719231802) do
     t.date     "end_date"
     t.integer  "project_id"
     t.integer  "user_id"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
