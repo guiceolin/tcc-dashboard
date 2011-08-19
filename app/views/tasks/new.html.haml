@@ -1,0 +1,8 @@
+.add-task
+  %h1
+    Adicionar tarefa -
+    = @project.name
+  .form
+    - simple_form_for @task, :url => project_tasks_path, :method => :put do |f|
+      = f.input :description
+      = f.button :submit

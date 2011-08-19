@@ -7,6 +7,12 @@ Dashboard::Application.routes.draw do
   resources :projects do
     get 'users', :on => :member
     resources :memberships
+    resources :tasks do
+      member do
+        put 'complete'
+        put 'start'
+      end
+    end
   end
   #resources :roles
   get 'roles/:id' => 'roles#edit', :as => :edit_role

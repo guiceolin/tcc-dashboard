@@ -1,0 +1,14 @@
+%table
+  - @tasks.each do |task|
+    %tr
+      %td
+        = task.start_date
+      %td
+        = task.end_date
+      %td
+        = task.description
+      %td
+        = task.status
+      %td
+        = link_to "finalizar", complete_project_task_path(task.project, task), :method => :put if task.started?
+        = link_to 'Iniciar', start_project_task_path(task.project, task), :method => :put unless task.started? || task.completed?

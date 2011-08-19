@@ -17,6 +17,7 @@ class Ability
       can(:edit, ::Project) { |p| p.members.include?(user) }
 
       can(:read, ::Membership) { |m| m.project.members.include?(user) }
+      can(:manage, ::Task) { |t| t.project.members.include?(user) }
     end
 
     # Define abilities for the passed in user here. For example:

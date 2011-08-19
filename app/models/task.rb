@@ -3,20 +3,29 @@ class Task < ActiveRecord::Base
   belongs_to :user
 
   def start
-    !start_date.present? && !!(start_date = Time.now)
+    self.start_date.blank? && !!(self.start_date = Date.today)
   end
 
   def started?
-    start_date.present?
+    start_date.present? && !completed?
   end
 
   def complete
-    start_date.present? && !!(end_date = Time.now)
+    self.start_date.present? && !!(self.end_date = Time.now)
   end
 
   def completed?
     end_date.present?
   end
 
+  def status
+    if completed?
+      'Finalizada'
+    elsif started?
+      'Iniciada'
+    else
+      'Nao iniciada'
+    end
+  end
 
 end

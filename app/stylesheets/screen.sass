@@ -5,20 +5,83 @@
 
 @import "compass/reset"
 @import "compass/css3"
+@import 'colors'
+
+.up-bar
+  //display: inline
+  //margin: -8px
+  width: 80%
+  height: 30px
+  p.user-info
+    margin: 0px
+    width: auto
+    float: right
+  p.notice
+    float: left
+    margin: 0px
+    padding: 5px
+    border: 2px solid $dark-green
+    width: 300px
+    background-color: $light-green
+    color: $dark-green
+    text-align: center
+  p.alert
+    float: left
+    margin: 0px
+    padding: 5px
+    border: 2px solid red
+    width: 300px
+    background-color: $light-red
+    color: red
+    text-align: center
+
+
+.projects
+  width: 50%
+  font-family: arial, helvetica
+  border: 1px solid black
+  padding: 5px
+
+
+p.header
+  text:
+    align: center
+  font:
+    size: 30px
+    weight: bold
+  letter-spacing: -2px
+
+.project
+  p
+    display: inline
+  p.links
+    float: right
+    margin: 0
+
+  border: 1px solid black
+  border-top: 0px
+  &.first
+    border:
+      top: 1px solid black
+  &.even
+    background-color: $light-blue
+
+  padding: 5px
+  width: auto
+  //@include border-radius(4px, 4px)
+  //@include box-shadow( gray , 5px, 5px, 10px)
 
 body
-  background-color: #D6F1FF
+  background: image-url("wood-background.jpg") top center no-repeat fixed
   font-family: arial, helvetica
 
-.add-membership
+.add-task
   margin: 14% auto
 
   width: 50%
   h1
     padding-bottom: 30px
 
-  input.bottom
-    float: right
 
 .add-membership
   margin: 14% auto
