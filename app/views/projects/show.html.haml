@@ -1,8 +1,19 @@
 .project-box
   %p.header
     = @project.name
-  %p
-    = link_to image_tag('icons/application_edit.png'), edit_project_path(@project), :title => 'Editar projeto' if can? :edit, @project
+  %h2
+    Informações:
+    %p.links
+      = link_to image_tag('icons/application_edit.png'), edit_project_path(@project), :title => 'Editar projeto' if can? :edit, @project
+  %h3
+    Descriçao:
+  %p.desc
+    = @project.description
+  %h3
+    Data Final:
+  %p.desc
+    = @project.end_date
+
   %h2
     Colaboradores:
     %p.links
