@@ -28,4 +28,8 @@ class Task < ActiveRecord::Base
     end
   end
 
+  def to_s
+    "#{description} - #{status}"
+  end
+
 end
