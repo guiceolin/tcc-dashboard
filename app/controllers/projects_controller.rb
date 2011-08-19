@@ -44,7 +44,7 @@ class ProjectsController < ActionController::Base
     current_user.associate_managed_project(@project)
      respond_to do |format|
       if @project.save
-        format.html { redirect_to(@project, :notice => 'Post was successfully created.') }
+        format.html { redirect_to(@project, :notice => 'Projeto criado com sucesso!') }
         format.xml  { render :xml => @project, :status => :created, :location => @project }
       else
         format.html { render :action => "new" }

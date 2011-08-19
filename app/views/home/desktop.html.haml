@@ -12,6 +12,7 @@
 
   - if @managed_projects.present?
     %p.header Projetos - Gerente
+    %p= link_to image_tag('icons/application_add.png'), new_project_path, :title => 'Criar projeto'
     - @managed_projects.each_with_index do |managed, index|
       .managed_project.project{:class => [index == 0 && "first", cycle("even", "odd")]}
         = link_to managed.name, managed
