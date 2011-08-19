@@ -1,16 +1,17 @@
-= simple_form_for(@project) do |f|
-  - if @project.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@project.errors.count, "error")
-        prohibited this project from being saved:
+.project-form
+  = simple_form_for(@project) do |f|
+    - if @project.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@project.errors.count, "error")
+          prohibited this project from being saved:
 
-      %ul
-        - @project.errors.full_messages.each do |msg|
-          %li= msg
+        %ul
+          - @project.errors.full_messages.each do |msg|
+            %li= msg
 
-  .inputs
-    = f.input :name
+    .inputs
+      = f.input :name, :label => 'Nome do projeto: '
 
-  .actions
-    = f.button :submit
+    .actions
+      = f.button :submit
