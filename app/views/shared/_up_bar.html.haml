@@ -1,4 +1,6 @@
 .up-bar
+  %p.logo
+    =link_to 'DashBoard', desktop_path
   - if flash[:notice]
     %p.notice= notice
   - if flash[:alert]
