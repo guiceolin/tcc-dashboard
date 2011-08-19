@@ -1,6 +1,8 @@
 class ProjectsController < ActionController::Base
   load_and_authorize_resource
 
+  layout 'application'
+
   def new
     @project = Project.new
   end
