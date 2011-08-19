@@ -16,7 +16,7 @@ class MembershipsController < ApplicationController
     @membership.project_id = params[:project_id]
 
     @membership.save
-    redirect_to project_memberships_path(@membership.project)
+    redirect_to project_path(@membership.project)
   end
 
   def edit
@@ -28,7 +28,7 @@ class MembershipsController < ApplicationController
     @membership.update_attributes params[:membership]
 
     @membership.save
-    redirect_to project_memberships_path(@membership.project)
+    redirect_to project_path(@membership.project)
   end
 
   def destroy
