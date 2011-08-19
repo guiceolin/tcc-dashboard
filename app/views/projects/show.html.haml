@@ -1,8 +1,27 @@
-%p#notice= notice
-
-%p= @project.id
-%p= @project.name
-
-= link_to 'Edit', edit_project_path(@project)
-\|
-= link_to 'Back', projects_path
+.project-box
+  %p.header
+    = @project.name
+  %p
+    = link_to image_tag('icons/application_edit.png'), edit_project_path(@project), :title => 'Editar projeto' if can? :edit, @project
+  %h2 Colaboradores:
+  %p
+    = link_to image_tag('icons/user_add.png'), new_project_membership_path(@project)
+  %ul.users
+    - @project.memberships.each do |membership|
+      %li.user
+        %p.desc
+          = membership.user
+        %p.links
+          = link_to image_tag('icons/user_edit.png'), edit_project_membership_path(membership.project,membership) if can? :edit, membership
+          = link_to image_tag('icons/user_delete.png'), { :controller => :memberships, :action => :destroy, :id => membership, :project_id => @project }, :method => :delete, :confirm => 'Tem certeza?' if can? :destroy, membership
+  %h2 Tarefas:
+  %p
+    = link_to image_tag('icons/clock_add.png'), new_project_task_path(@project)
+  %ul.tasks
+    - @project.tasks.each do |task|
+      %li.task
+        %p.desc
+          = task
+        %p.links
+          = link_to image_tag('icons/clock_stop.png'), complete_project_task_path(task.project, task), :method => :put if task.started?
+          = link_to image_tag('icons/clock_play.png'), start_project_task_path(task.project, task), :method => :put unless task.started? || task.completed?
