@@ -1,8 +1,11 @@
-- form_for @membership, :url => {:controller => :memberships, :action => :update, :project_id => @membership.project }, :method => :put do |f|
-  = @membership.user.full_name
-  %br
-  = check_box_tag 'membership[manager]', true, @membership.manager?
-  Gerente?
-  %br
-  = f.submit
+.white-box
+  %p.header
+    Editar Colaborador
+  - form_for @membership, :url => {:controller => :memberships, :action => :update, :project_id => @membership.project }, :method => :put do |f|
+    = @membership.user
+    %br
+    = check_box_tag 'membership[manager]', true, @membership.manager?
+    Gerente?
+    %br
+    = f.submit
 
