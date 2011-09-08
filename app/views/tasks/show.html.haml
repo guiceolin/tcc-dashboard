@@ -1,0 +1,25 @@
+.project-box
+  %p.header
+    = link_to @task.project.name, @task.project
+  %h2
+    %p.desc
+      Gerenciar Tarefa
+    %p.links
+      = link_to image_tag('icons/clock_stop.png'), complete_project_task_path(@task.project, @task), :method => :put if @task.started?
+      = link_to image_tag('icons/clock_play.png'), start_project_task_path(@task.project, @task), :method => :put unless @task.started? || @task.completed?
+  %h3
+    Descrição da tarefa:
+  %p.desc
+    = @task.description
+  %h3
+    Data de inicio:
+  %p.desc
+    = @task.start_date
+  %h3
+    Data de encerramento:
+  %p.desc
+    = @task.end_date
+  %h3
+    Usuário atribuido:
+  %p.desc
+    = @task.user 
