@@ -26,6 +26,7 @@ class TasksController < ApplicationController
 
   def start
     @task = Task.find(params[:id])
+    @task.user = current_user
     @task.start
     @task.save
 
