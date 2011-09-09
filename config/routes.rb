@@ -4,6 +4,12 @@ Dashboard::Application.routes.draw do
   get 'desktop/' => 'home#desktop'
 
   devise_for :users
+  resources :messages do
+    member do
+      put 'unread'
+      put 'read'
+    end
+  end
   resources :projects do
     get 'users', :on => :member
     resources :memberships
@@ -14,6 +20,7 @@ Dashboard::Application.routes.draw do
       end
     end
   end
+
   #resources :roles
   get 'roles/:id' => 'roles#edit', :as => :edit_role
   put 'roles/:id' => 'roles#update', :as => :edit_role
