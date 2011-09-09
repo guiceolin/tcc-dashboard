@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
   has_many :memberships
   has_many :tasks
+  has_many :sent_messages, :inverse_of => :sender, :class_name => 'Message', :foreign_key => :sender_id
 
   # Setup accessible (or protected) attributes for your model
   devise :database_authenticatable, :registerable,
