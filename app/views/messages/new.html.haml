@@ -1,0 +1,11 @@
+.project-box
+  %p.header
+    Nova Mensagem
+
+  = simple_form_for(@message) do |f|
+    .inputs
+      = f.association :receivers, :label => "Destinatarios"
+      = f.input :subject, :label => 'Assunto'
+      = f.input :body,    :label => "Mensagem"
+    .action
+      = f.button :submit, 'Enviar'

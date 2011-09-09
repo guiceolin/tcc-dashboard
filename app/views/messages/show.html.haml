@@ -1,0 +1,17 @@
+.project-box
+  %p.header
+    Mensagem
+  %h2
+    De: #{@message.sender}
+  %p.links
+    = link_to 'Marcar como não lida', unread_message_path(@message), :method => :put if @message.sender != current_user
+
+  %h3
+    Assunto:
+  %p.desc
+    = @message.subject
+  %h3
+    Mensagem:
+  %p.desc
+    = @message.body
+
