@@ -6,5 +6,6 @@
   - if flash[:alert]
     %p.alert= alert
   %p.user-info
+    = link_to image_tag('icons/email.png'), messages_path
     = current_user
     = link_to t('sign_out'), destroy_user_session_path
