@@ -1,0 +1,7 @@
+Olá, #{@user.full_name}
+
+= I18n.t('notifications.messages.count', :count => @count)
+Para acessa-las, clique aqui:
+= link_to 'Mensagens', messages_path
+
+

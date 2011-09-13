@@ -1,6 +1,13 @@
 # encoding: UTF-8
 # pt-BR translations for Ruby on Rails
 "pt-BR":
+  
+  notifications:
+    messages:
+      subject: Novas mensagens lhe aguardam
+      count:
+        one: Voce possui uma nova mensagem
+        other: Você possui %{count} novas mensagens.
 
   sign_in: 'Entrar'
   sign_up: 'Registrar'
@@ -216,3 +223,5 @@
       manager:
         one: Gerente
         others: Gerentes
+
+
