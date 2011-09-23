@@ -10,12 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110909011218) do
+ActiveRecord::Schema.define(:version => 20110923013130) do
 
   create_table "deliveries", :force => true do |t|
     t.integer  "message_id"
     t.integer  "user_id"
     t.boolean  "read"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "documents", :force => true do |t|
+    t.integer  "project_id"
+    t.text     "desciption"
+    t.string   "file"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

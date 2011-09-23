@@ -1,0 +1,2 @@
+Fabricator(:document) do
+end
