@@ -1,7 +1,9 @@
 # encoding: UTF-8
 # pt-BR translations for Ruby on Rails
 "pt-BR":
-  
+  will_paginate:
+    previous_label: Anterior
+    next_label: Próximo
   notifications:
     messages:
       subject: Novas mensagens lhe aguardam
