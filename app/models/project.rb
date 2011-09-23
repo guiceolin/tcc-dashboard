@@ -9,6 +9,7 @@ class Project < ActiveRecord::Base
                       :source     => :user,
                       :conditions => 'memberships.manager = 1'
   has_many :tasks
+  has_many :documents
 
   validates :name, :presence => true
 
