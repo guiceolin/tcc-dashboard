@@ -15,6 +15,7 @@ gem 'compass', '>= 0.10.6'
 gem 'rails3-generators'
 
 gem 'newrelic_rpm'
+gem 'will_paginate'
 
 group :development do
   gem 'hpricot'
