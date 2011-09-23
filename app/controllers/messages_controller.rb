@@ -2,8 +2,8 @@ class MessagesController < ActionController::Base
 
   layout 'application'
   def index
-    @deliveries = current_user.deliveries
-    @sent_messages = current_user.sent_messages
+    @deliveries = current_user.deliveries.paginate(:page => params[:deliveries_page], :per_page => 10)
+    @sent_messages = current_user.sent_messages.paginate(:page => params[:sent_page], :per_page => 10)
   end
 
   def new
