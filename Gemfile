@@ -16,6 +16,7 @@ gem 'rails3-generators'
 
 gem 'newrelic_rpm'
 gem 'will_paginate'
+gem 'carrierwave'
 
 group :development do
   gem 'hpricot'
