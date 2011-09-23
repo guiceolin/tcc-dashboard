@@ -13,6 +13,7 @@ Dashboard::Application.routes.draw do
   resources :projects do
     get 'users', :on => :member
     resources :memberships
+    resources :documents
     resources :tasks do
       member do
         put 'complete'
