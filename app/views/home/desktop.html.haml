@@ -1,23 +1,40 @@
-.projects
-  - if @projects.present?
-    %p.header Projetos - Membro
-    - @projects.each_with_index do |project,index|
-      .project{:class => [index == 0 && "first", cycle("even", "odd")]}
-        %p
-          = link_to project.name, project
-        %p.links
-          = link_to image_tag('icons/application_edit.png'), edit_project_path(project), :title => 'Editar Projeto'
-          = link_to image_tag('icons/group.png'), project_memberships_path(project), :title => 'Membros'
-          = link_to image_tag('icons/bin.png'), { :controller => 'projects', :action => :destroy, :id => project } , :method => :delete, :confirm => 'Tem Certeza?', :title => 'Excluir projeto' if can? :destroy, project
+.project-box
+  %p.header
+    = @project.name
+  %h2
+    Informações:
+    %p.links
+      = link_to image_tag('icons/application_edit.png'), edit_project_path(@project), :title => 'Editar projeto' if can? :edit, @project
+  %h3
+    Descriçao:
+  %p.desc
+    = @project.description
+  %h3
+    Data Final:
+  %p.desc
+    = @project.end_date
 
-  - if @managed_projects.present?
-    %p.header Projetos - Gerente
-    %p= link_to image_tag('icons/application_add.png'), new_project_path, :title => 'Criar projeto'
-    - @managed_projects.each_with_index do |managed, index|
-      .managed_project.project{:class => [index == 0 && "first", cycle("even", "odd")]}
-        = link_to managed.name, managed
+  %h2
+    Colaboradores:
+    %p.links
+      = link_to image_tag('icons/user_add.png'), new_project_membership_path(@project)
+  %ul.users
+    - @project.memberships.each do |membership|
+      %li.user
+        %p.desc
+          = membership.user
         %p.links
-          = link_to image_tag('icons/application_edit.png'), edit_project_path(managed), :title => 'Editar projeto' if can? :edit, managed
-          = link_to image_tag('icons/group.png'), project_memberships_path(managed), :title => 'Membros'
-          = link_to image_tag('icons/bin.png'), { :controller => 'projects', :action => :destroy, :id => managed } , :method => :delete, :confirm => 'Tem Certeza?', :title => 'Excluir projeto' if can? :destroy, managed
-
+          = link_to image_tag('icons/user_edit.png'), edit_project_membership_path(membership.project,membership) if can? :edit, membership
+          = link_to image_tag('icons/user_delete.png'), { :controller => :memberships, :action => :destroy, :id => membership, :project_id => @project }, :method => :delete, :confirm => 'Tem certeza?' if can? :destroy, membership
+  %h2
+    Tarefas:
+    %p.links
+      = link_to image_tag('icons/clock_add.png'), new_project_task_path(@project)
+  %ul.tasks
+    - @project.tasks.each do |task|
+      %li.task
+        %p.desc
+          = link_to task, project_task_path(@project, task)
+        %p.links
+          = link_to image_tag('icons/clock_stop.png'), complete_project_task_path(task.project, task), :method => :put if task.started?
+          = link_to image_tag('icons/clock_play.png'), start_project_task_path(task.project, task), :method => :put unless task.started? || task.completed?

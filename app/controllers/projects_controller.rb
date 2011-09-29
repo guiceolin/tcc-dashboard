@@ -13,18 +13,16 @@ class ProjectsController < ActionController::Base
 
   def show
     @project = Project.find(params[:id])
-
   end
 
   def index
-    if current_user.is_a? Manager
-      @projects = current_user.managed_projects
-    else
-      @projects = current_user.projects
-    end
+    @projects = current_user.projects
+    @managed_projects = current_user.managed_projects if current_user.is_a? Manager
+    #flash[:alert] = 'Mensagem de Teste do Flash'
+    render :layout => 'application'
   end
 
-   def update
+  def update
     @project = Project.find(params[:id])
 
     respond_to do |format|
@@ -42,7 +40,7 @@ class ProjectsController < ActionController::Base
   def create
     @project = Project.new(params[:project])
     current_user.associate_managed_project(@project)
-     respond_to do |format|
+    respond_to do |format|
       if @project.save
         format.html { redirect_to(@project, :notice => 'Projeto criado com sucesso!') }
         format.xml  { render :xml => @project, :status => :created, :location => @project }
@@ -54,7 +52,7 @@ class ProjectsController < ActionController::Base
 
   end
 
-   def update
+  def update
     @project = Project.find(params[:id])
 
     respond_to do |format|
