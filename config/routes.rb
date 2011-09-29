@@ -12,6 +12,7 @@ Dashboard::Application.routes.draw do
   end
   resources :projects do
     get 'users', :on => :member
+    get 'set_active', :on => :member
     resources :memberships
     resources :documents
     resources :tasks do

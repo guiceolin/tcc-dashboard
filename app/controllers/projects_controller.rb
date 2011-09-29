@@ -66,21 +66,27 @@ class ProjectsController < ActionController::Base
         format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
       end
     end
-   end
+  end
 
-   def destroy
-     @project = Project.find(params[:id])
-     @project.destroy
+  def destroy
+    @project = Project.find(params[:id])
+    @project.destroy
 
-     respond_to do |format|
-       format.html { redirect_to(root_url) }
-       format.xml  { head :ok }
-     end
-   end
+    respond_to do |format|
+      format.html { redirect_to(root_url) }
+      format.xml  { head :ok }
+    end
+  end
 
-   def users
-     @project  = Project.find(params[:id])
-     @members  = @project.members
-     @managers = @project.managers
-   end
+  def users
+    @project  = Project.find(params[:id])
+    @members  = @project.members
+    @managers = @project.managers
+  end
+
+  def set_active
+    current_user.current_project_id = params[:id]
+    current_user.save
+    redirect_to Project.find(params[:id])
+  end
 end
