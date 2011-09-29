@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 
+  belongs_to :current_project, :class_name => 'Project'
   has_many :memberships
   has_many :tasks
   has_many :deliveries

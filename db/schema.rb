@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110923013130) do
+ActiveRecord::Schema.define(:version => 20110928235953) do
 
   create_table "deliveries", :force => true do |t|
     t.integer  "message_id"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20110923013130) do
 
   create_table "documents", :force => true do |t|
     t.integer  "project_id"
-    t.text     "desciption"
+    t.text     "description"
     t.string   "file"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20110923013130) do
     t.string   "last_name"
     t.integer  "roles_mask"
     t.string   "type",                                :default => "Member", :null => false
+    t.integer  "current_project_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
