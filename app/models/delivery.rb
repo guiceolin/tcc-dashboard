@@ -1,8 +1,18 @@
 class Delivery < ActiveRecord::Base
   belongs_to :message
   belongs_to :user
+  PER_PAGE = 2
 
   scope :unread, :conditions => { :read => false}
+
+  def self.search search
+    result = joins(:message)
+    result = result.where('deliveries.created_at >= ?', format_date(search[:from])) if search[:from].present?
+    result = result.where('deliveries.created_at <= ?', format_date(search[:to])) if search[:to].present?
+    result = result.where('sender_id = ?', search[:sender] ) if search[:sender].present? 
+    result = result.where(:read => true) if search[:read].present?
+    result
+  end
 
   def unread?
     !read
@@ -14,5 +24,11 @@ class Delivery < ActiveRecord::Base
 
   def read!
     self.read = true
+  end
+
+  private
+
+  def self.format_date date
+    DateTime.strptime(date, '%d/%m/%Y')
   end
 end
