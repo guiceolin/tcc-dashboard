@@ -3,6 +3,7 @@ Dashboard::Application.routes.draw do
 
   get 'desktop/' => 'home#desktop'
 
+  get 'messages/search' => 'messages#search'
   devise_for :users
   resources :messages do
     member do
