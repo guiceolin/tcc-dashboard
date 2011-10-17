@@ -1,0 +1,11 @@
+=form_tag '/messages/search', :method => :get do
+  = label_tag 'De'
+  = text_field_tag :from, params[:from], :class => 'datepicker', :size => 10
+  = label_tag 'Até'
+  = text_field_tag :to, params[:to], :class => 'datepicker', :size => 10
+  = label_tag 'Remetente'
+  = select_tag :sender, options_from_collection_for_select(User.where(:id => current_user.deliveries.map(&:message).map(&:sender_id).uniq), :id, :to_s, params[:sender]), :include_blank => true
+  = check_box_tag :read 
+  = label_tag 'Lida?'
+  = submit_tag 'Filtrar'
+

@@ -15,12 +15,3 @@
           = link_to image_tag('icons/email_open.png'), read_message_path(delivery.message), :method => :put if delivery.unread?
     .pagination
       = will_paginate @deliveries, :param_name => :deliveries_page
-  %h2
-    Mensagens enviadas
-  %ul
-    - @sent_messages.each do |msg|
-      %li
-        %p.desc
-          =link_to msg.subject, message_path(msg)
-    .pagination
-      = will_paginate @sent_messages, :param_name => :sent_page
