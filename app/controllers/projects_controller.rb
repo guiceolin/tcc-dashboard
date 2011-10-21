@@ -13,6 +13,7 @@ class ProjectsController < ActionController::Base
 
   def show
     @project = Project.find(params[:id])
+    render 'home/desktop'
   end
 
   def index
