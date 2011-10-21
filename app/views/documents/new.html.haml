@@ -1,0 +1,12 @@
+.project-box
+  %p.header
+    Adicionar arquivo ao Projeto
+
+  .project-form
+    = simple_form_for @document, :url => project_documents_path, :html => {:multipart => true} do |f|
+      .inputs
+        = f.input :description, :label => 'Descrição: '
+        = f.input :file, :label => 'Arquivo: '
+
+      .actions
+        = f.button :submit, 'Adicionar Documento'

@@ -1,0 +1,11 @@
+.project-box
+  %p.header
+    Adicionar arquivo ao Projeto
+
+  .project-form
+    = simple_form_for [@document.project,@document], :html => { :method => :put } do |f|
+      .inputs
+        = f.input :description, :label => 'Descrição: '
+
+      .actions
+        = f.button :submit, 'Atualizar'

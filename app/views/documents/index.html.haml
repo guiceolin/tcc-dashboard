@@ -1,0 +1,13 @@
+.project-box
+  %p.header
+    Documentos do Projeto
+
+  %ul
+    - @documents.each do |doc|
+      %li
+        %p.desc
+          = image_tag "icons/page_white_get.png"
+          = link_to doc.file_identifier, project_document_path(doc.project,doc)
+          = doc.description
+        %p.links
+          = link_to image_tag('icons/page_white_delete.png'), {:controller => :documents, :action => :destroy, :id => doc.id, :project_id => doc.project}, :method => :delete, :confirm => 'Tem certeza?' if can? :destroy, doc
