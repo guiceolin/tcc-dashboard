@@ -38,3 +38,18 @@
         %p.links
           = link_to image_tag('icons/clock_stop.png'), complete_project_task_path(task.project, task), :method => :put if task.started?
           = link_to image_tag('icons/clock_play.png'), start_project_task_path(task.project, task), :method => :put unless task.started? || task.completed?
+  %h2
+    Documentos:
+    %p.links
+      = link_to image_tag('icons/page_white_add.png'), new_project_document_path(@project)
+  %ul.documents
+    - @project.documents.each do |doc|
+      %li
+        %p.desc
+          = image_tag "icons/page_white_get.png"
+          = link_to doc.file_identifier, project_document_path(doc.project,doc)
+          = doc.description
+        %p.links
+          = link_to image_tag('icons/page_white_edit.png'), edit_project_document_path(@project,doc) if can? :edit, doc
+          = link_to image_tag('icons/page_white_delete.png'), {:controller => :documents, :action => :destroy, :id => doc.id, :project_id => doc.project}, :method => :delete, :confirm => 'Tem certeza?' if can? :destroy, doc
+
