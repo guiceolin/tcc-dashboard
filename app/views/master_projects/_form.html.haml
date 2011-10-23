@@ -1,0 +1,8 @@
+.project-form
+  = simple_form_for(@master) do |f|
+    .inputs
+      = f.input :name, :label => 'Nome do Projeto: '
+      = f.input :description, :label => 'Descrição do projeto: '
+
+    .actions
+      = f.button :submit

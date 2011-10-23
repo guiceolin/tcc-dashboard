@@ -1,0 +1,12 @@
+.project-box
+  %p.header
+    = @master.name
+  %h2
+    Informações:
+    %p.links
+      = link_to image_tag('icons/application_edit.png'), edit_master_project_path(@master), :title => 'Editar Projeto' if can? :edit, @master
+  %h3
+    Descrição:
+  %p.desc
+    = @master.description
+
