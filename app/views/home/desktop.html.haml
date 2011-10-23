@@ -35,6 +35,8 @@
       %li.task
         %p.desc
           = link_to task, project_task_path(@project, task)
+          %span.task-info
+            = task.status
         %p.links
           = link_to image_tag('icons/clock_stop.png'), complete_project_task_path(task.project, task), :method => :put if task.started?
           = link_to image_tag('icons/clock_play.png'), start_project_task_path(task.project, task), :method => :put unless task.started? || task.completed?
