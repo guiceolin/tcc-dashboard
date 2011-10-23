@@ -3,7 +3,7 @@
     Mensagens de #{current_user}
   %p.links
     = link_to image_tag('icons/email_add.png'), new_message_path
-  %h2 
+  %h2
     Mensagens recebidas
     = render 'search_form'
   %ul
@@ -11,6 +11,10 @@
       %li{:class => delivery.read ? 'read' : 'unread'}
         %p.desc
           = link_to delivery.message.subject, message_path(delivery.message)
+          %span.mail-info
+            = delivery.user
+            em
+            = I18n.l(delivery.created_at, :format => :short)
         %p.links
           = link_to image_tag('icons/email_open.png'), read_message_path(delivery.message), :method => :put if delivery.unread?
     .pagination
