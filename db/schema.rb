@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110928235953) do
+ActiveRecord::Schema.define(:version => 20111021102930) do
 
   create_table "deliveries", :force => true do |t|
     t.integer  "message_id"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(:version => 20110928235953) do
     t.integer  "project_id"
     t.text     "description"
     t.string   "file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "master_projects", :force => true do |t|
+    t.integer  "owner_id"
+    t.text     "description"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
