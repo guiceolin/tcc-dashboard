@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
 
+  belongs_to :master_project
+
   has_many :memberships
   has_many :members,  :through    => :memberships,
                       :source     => :user,

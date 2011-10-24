@@ -41,6 +41,7 @@ class ProjectsController < ActionController::Base
   def create
     @project = Project.new(params[:project])
     current_user.associate_managed_project(@project)
+    @project.master_project = current_user.current_master_project
     respond_to do |format|
       if @project.save
         format.html { redirect_to(@project, :notice => 'Projeto criado com sucesso!') }
