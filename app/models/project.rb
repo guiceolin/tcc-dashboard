@@ -15,6 +15,8 @@ class Project < ActiveRecord::Base
 
   validates :name, :presence => true
 
+  delegate :end_date, :to => :master_project
+
   def colaborators
     members + managers
   end
