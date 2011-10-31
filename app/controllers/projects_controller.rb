@@ -85,8 +85,12 @@ class ProjectsController < ActionController::Base
   end
 
   def set_active
-    current_user.current_project_id = params[:id]
+    if current_user.is_a? Manager
+      current_user.current_master_project_id = params[:id]
+    else
+      current_user.current_project_id = params[:id]
+    end
     current_user.save
-    redirect_to Project.find(params[:id])
+    redirect_to desktop_path
   end
 end

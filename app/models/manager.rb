@@ -10,4 +10,16 @@ class Manager < Member
   def associate_managed_project(project)
     Membership.create(:project => project, :user => self, :manager => true)
   end
+
+  def active_project=(master_project)
+    current_master_project= master_project
+  end
+
+  def current_project
+    current_master_project
+  end
+
+  def project_list
+    master_projects.collect { |mp| [mp.name, mp.id]}
+  end
 end

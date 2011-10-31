@@ -6,7 +6,13 @@
   - if flash[:alert]
     %p.alert= alert
   %p.user-info
-    = select_tag 'active_project', options_for_select((current_user.projects + current_user.managed_projects ).collect { |p| [p.name, p.id] }, current_user.current_project.id ), :class => 'active_project_select'
+    = select_tag 'active_project', options_for_select(current_user.project_list, current_user.current_project.id ), :class => 'active_project_select'
     = link_to image_tag('icons/email.png'), messages_path
     = current_user
     = link_to t('sign_out'), destroy_user_session_path
+:javascript
+  $(document).ready(function() {
+    $(".active_project_select").change(function () {
+      window.location = 'projects/' +  $(".active_project_select option:selected").val() + '/set_active'
+    });
+  });
