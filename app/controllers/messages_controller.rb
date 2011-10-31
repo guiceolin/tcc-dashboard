@@ -54,9 +54,9 @@ class MessagesController < ActionController::Base
 
   def search
     begin
-      @deliveries = current_user.deliveries.search(params).paginate(:page => params[:deliveries_page], :per_page => Delivery::PER_PAGE)
+      @deliveries = current_user.deliveries.search(params).paginate(:page => params[:deliveries_page], :per_page => params[:per_page] || Delivery::PER_PAGE)
     rescue
-      @deliveries = current_user.deliveries.paginate(:page => params[:deliveries_page], :per_page => Delivery::PER_PAGE)
+      @deliveries = current_user.deliveries.paginate(:page => params[:deliveries_page], :per_page => params[:per_page] || Delivery::PER_PAGE)
     end
   end
 

@@ -5,7 +5,10 @@
   = text_field_tag :to, params[:to], :class => 'datepicker', :size => 10
   = label_tag 'Remetente'
   = select_tag :sender, options_from_collection_for_select(User.where(:id => current_user.deliveries.map(&:message).map(&:sender_id).uniq), :id, :to_s, params[:sender]), :include_blank => true
-  = check_box_tag :read 
+  = check_box_tag :read
   = label_tag 'Lida?'
+  %br
+  = label_tag  'Por Pagina: '
+  = select_tag :per_page, options_for_select([5,10,20,50], 10)
   = submit_tag 'Filtrar'
 
