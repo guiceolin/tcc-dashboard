@@ -7,4 +7,12 @@ class Member < User
   def project_list
     projects.collect {|project| [project.name, project.id]}
   end
+
+  def current_master_project
+    current_project.master_project
+  end
+
+  def current_master_project=(master_project)
+    current_project.master_project = master_project
+  end
 end
