@@ -12,6 +12,7 @@ class MessagesController < ActionController::Base
 
   def create
     @message = Message.new params[:message]
+    @message.master_project = current_user.current_master_project
     @message.sender = current_user
     @message.save
 
@@ -53,9 +54,9 @@ class MessagesController < ActionController::Base
 
   def search
     begin
-      @deliveries = current_user.deliveries.search(params).paginate(:page => params[:deliveries_page], :per_page => Delivery::PER_PAGE) 
-    rescue 
-      @deliveries = current_user.deliveries.paginate(:page => params[:deliveries_page], :per_page => Delivery::PER_PAGE) 
+      @deliveries = current_user.deliveries.search(params).paginate(:page => params[:deliveries_page], :per_page => Delivery::PER_PAGE)
+    rescue
+      @deliveries = current_user.deliveries.paginate(:page => params[:deliveries_page], :per_page => Delivery::PER_PAGE)
     end
   end
 
