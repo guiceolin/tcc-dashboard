@@ -1,0 +1,12 @@
+.project-box
+  = render :partial => 'project_info', :locals => { :project => @project }
+
+  %h2
+    Projetos:
+    %p.links
+      = link_to image_tag('icons/application_add.png'), new_project_path
+  %ul.sub-projects
+    - @project.projects.each do |project|
+      %li.project
+        %p.desc
+          = link_to project.name, project
