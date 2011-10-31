@@ -8,6 +8,8 @@
   = check_box_tag :read
   = label_tag 'Lida?'
   %br
+  = label_tag 'Projeto Guarda chuva: '
+  = select_tag :master_project, options_from_collection_for_select(current_user.projects.map(&:master_project).uniq, :id, :name, current_user.current_master_project.id), :include_blank => true
   = label_tag  'Por Pagina: '
   = select_tag :per_page, options_for_select([5,10,20,50], 10)
   = submit_tag 'Filtrar'
