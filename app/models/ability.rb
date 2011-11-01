@@ -15,6 +15,7 @@ class Ability
     if user.is_a? Member
       can(:read, ::Project) { |p| p.members.include?(user) }
       can(:edit, ::Project) { |p| p.members.include?(user) }
+      can(:set_active, ::Project)  { |p| p.members.include?(user) }
       can(:update, ::Project) { |p| p.members.include?(user) }
 
       can(:read, ::Membership) { |m| m.project.members.include?(user) }
