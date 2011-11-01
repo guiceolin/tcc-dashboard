@@ -15,6 +15,10 @@ class Delivery < ActiveRecord::Base
     result
   end
 
+  def archive
+    self.archived = true
+  end
+
   def unread?
     !read
   end
