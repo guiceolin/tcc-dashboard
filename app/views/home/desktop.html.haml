@@ -5,6 +5,7 @@
     Informações:
     %p.links
       = link_to image_tag('icons/application_edit.png'), edit_project_path(@project), :title => 'Editar projeto' if can? :edit, @project
+      = link_to image_tag('icons/application_go.png'), finish_project_path(@project), :title => 'Entregar projeto'
   %h3
     Descriçao:
   %p.desc

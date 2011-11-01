@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111031222908) do
+ActiveRecord::Schema.define(:version => 20111031233328) do
 
   create_table "deliveries", :force => true do |t|
     t.integer  "message_id"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20111031222908) do
     t.datetime "updated_at"
     t.text     "description"
     t.integer  "master_project_id"
+    t.boolean  "finished"
   end
 
   create_table "tasks", :force => true do |t|

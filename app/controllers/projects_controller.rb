@@ -1,5 +1,5 @@
 class ProjectsController < ActionController::Base
-  load_and_authorize_resource
+  load_and_authorize_resource :project
 
   layout 'application'
 
@@ -92,5 +92,13 @@ class ProjectsController < ActionController::Base
     end
     current_user.save
     redirect_to desktop_path
+  end
+
+  def finish
+    @project = current_user.current_project
+    debugger
+    @project.finish
+    @project.save
+    redirect_to(@project)
   end
 end

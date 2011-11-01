@@ -20,4 +20,8 @@ class Project < ActiveRecord::Base
   def colaborators
     members + managers
   end
+
+  def finish
+    self.finished = true
+  end
 end
