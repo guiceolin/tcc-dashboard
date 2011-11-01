@@ -5,6 +5,7 @@
     Projetos:
     %p.links
       = link_to image_tag('icons/application_add.png'), new_project_path
+      = link_to image_tag('icons/application_go.png'), finish_master_project_path(@project), :title => 'Encerrar projeto'
   %ul.sub-projects
     - @project.projects.each do |project|
       %li.project

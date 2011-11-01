@@ -11,7 +11,9 @@ Dashboard::Application.routes.draw do
       put 'read'
     end
   end
-  resources :master_projects
+  resources :master_projects do
+    get 'finish', :on => :member
+  end
   resources :projects do
     get 'users', :on => :member
     get 'set_active', :on => :member

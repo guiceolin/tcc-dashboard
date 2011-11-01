@@ -26,4 +26,11 @@ class MasterProjectsController < ApplicationController
   def show
     @master = MasterProject.find(params[:id])
   end
+
+  def finish
+    @master = current_user.current_master_project
+    @master.finish
+    @master.save
+    redirect_to @master
+  end
 end

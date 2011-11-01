@@ -10,6 +10,8 @@ class Ability
       can(:manage,       ::Project) { |p| user.managed_projects.include? p }
       can :manage_users, ::Project
 
+      can(:finish,       ::MasterProject) { |p| user.master_projects.include? p }
+
       can(:manage,       ::Membership) { |m| m.project.managers.include? user}
     end
     if user.is_a? Member
