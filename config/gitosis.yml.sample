@@ -1,0 +1,5 @@
+admin_uri: git-tcc@ceol.in:gitosis-admin.git
+base_path: /home/git-tcc/repositories/
+host: ceol.in
+git_user: git-tcc
+

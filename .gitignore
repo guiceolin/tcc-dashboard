@@ -3,6 +3,7 @@ db/*.sqlite3
 log/*.log
 tmp/
 config/database.yml
+config/gitosis.yml
 public/**/*.css
 config/smtp.yml
 vendor/ruby
