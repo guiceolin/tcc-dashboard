@@ -7,12 +7,12 @@ class Ability
 
     if user.is_a? Manager
       can :create,       ::Project
-      can(:manage,       ::Project) { |p| user.managed_projects.include? p }
+      can(:manage,       ::Project) { |p| user.current_master_project.projects.include? p }
       can :manage_users, ::Project
 
       can(:finish,       ::MasterProject) { |p| user.master_projects.include? p }
 
-      can(:manage,       ::Membership) { |m| m.project.managers.include? user}
+      can(:manage,       ::Membership) { |m| user.current_master_project.projects.include? m.project }
     end
     if user.is_a? Member
       can(:read, ::Project) { |p| p.members.include?(user) }
