@@ -21,7 +21,7 @@ class Project < ActiveRecord::Base
 
   def update_repo
     Gitosis.new.configure do |r|
-      r.update_project(repo_name, members_email)
+      r.update_project(repo_name, member_keys)
     end
   end
 
@@ -37,7 +37,7 @@ class Project < ActiveRecord::Base
     self.finished = true
   end
 
-  def members_email
-    members.map(&:email)
+  def member_keys
+    members.map(&:key_names).flatten
   end
 end
