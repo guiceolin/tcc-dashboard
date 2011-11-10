@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
   belongs_to :current_project, :class_name => 'Project'
+  has_many :keys
   has_many :memberships
   has_many :tasks
   has_many :deliveries
@@ -20,6 +21,10 @@ class User < ActiveRecord::Base
 
   def full_name
     [first_name, last_name].join(' ')
+  end
+
+  def pub_keys
+    keys.map(&:name)
   end
 
   def to_s
