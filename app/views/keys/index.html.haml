@@ -1,0 +1,11 @@
+.project-box
+  %p.header Chaves Públicas
+  = link_to image_tag('icons/key_add.png'), new_key_path
+  - @keys.each do |key|
+    .project
+      %p
+        = key.name
+      %p.links
+        = link_to image_tag('icons/key_delete.png'), key_path(key), :method => :delete, :confirm => 'Tem Certeza?'
+
+

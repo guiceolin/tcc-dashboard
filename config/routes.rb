@@ -5,6 +5,7 @@ Dashboard::Application.routes.draw do
 
   get 'messages/search' => 'messages#search'
   devise_for :users
+  resources :keys, :only => [:index,:new, :create, :destroy]
   resources :messages do
     member do
       put 'unread'

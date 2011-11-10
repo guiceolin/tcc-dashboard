@@ -8,6 +8,7 @@
   %p.user-info
     = select_tag 'active_project', options_for_select(current_user.project_list, current_user.current_project.id ), :class => 'active_project_select'
     = link_to image_tag('icons/email.png'), messages_path
+    = link_to image_tag('icons/key.png'), keys_path
     = current_user
     = link_to t('sign_out'), destroy_user_session_path
 :javascript

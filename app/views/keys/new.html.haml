@@ -1,0 +1,11 @@
+.project-box
+  %p.header
+    Nova chave pública
+
+  .project-form
+    = simple_form_for(@key) do |f|
+      .inputs
+        = f.input :name, :label => 'Nome da Chave: '
+        = f.input :key, :label => 'Chave: '
+      .actions
+        = f.button :submit
