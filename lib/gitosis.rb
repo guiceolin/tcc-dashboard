@@ -7,7 +7,7 @@ class Gitosis
 
   def pull
     # create tmp dir
-    @local_dir = File.join(Dir.tmpdir,"gitlabhq-gitosis-#{Time.now.to_i}")
+    @local_dir = File.join(Dir.tmpdir,"gitosis-#{Time.now.to_i}")
 
     Dir.mkdir @local_dir
 
@@ -26,7 +26,7 @@ class Gitosis
 
   def configure
     status = Timeout::timeout(2000) do
-      File.open(File.join(Dir.tmpdir,"gitlabhq-gitosis.lock"), "w+") do |f|
+      File.open(File.join(Dir.tmpdir,"gitosis.lock"), "w+") do |f|
         begin
           f.flock(File::LOCK_EX)
           pull
