@@ -25,6 +25,10 @@ class Project < ActiveRecord::Base
     end
   end
 
+  def repo
+    @repo ||= Grit::Repo.new(GITOSIS['base_path'] + repo_name + '.git')
+  end
+
   def repo_name
     name.parameterize
   end
