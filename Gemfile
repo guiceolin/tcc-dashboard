@@ -12,6 +12,9 @@ gem 'rails3-generators'
 gem 'newrelic_rpm'
 gem 'will_paginate'
 gem 'carrierwave'
+gem 'grit'
+gem "pygments.rb", "0.2.3"
+
 
 group :development do
   gem 'hpricot'

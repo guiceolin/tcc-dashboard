@@ -31,6 +31,7 @@ GEM
     archive-tar-minitar (0.5.2)
     arel (2.0.10)
     bcrypt-ruby (2.1.4)
+    blankslate (2.1.2.4)
     builder (2.1.2)
     cancan (1.6.5)
     capistrano (2.6.0)
@@ -56,7 +57,11 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     fabrication (1.0.1)
+    ffi (1.0.10)
     fssm (0.2.7)
+    grit (2.4.1)
+      diff-lcs (~> 1.1)
+      mime-types (~> 1.15)
     haml (3.1.2)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
@@ -88,6 +93,8 @@ GEM
     newrelic_rpm (3.1.0)
     orm_adapter (0.0.5)
     polyglot (0.3.2)
+    pygments.rb (0.2.3)
+      rubypython (>= 0.5.1)
     rack (1.2.3)
     rack-mount (0.6.14)
       rack (>= 1.0.0)
@@ -136,6 +143,9 @@ GEM
       archive-tar-minitar (>= 0.5.2)
     ruby_parser (2.0.6)
       sexp_processor (~> 3.0)
+    rubypython (0.5.3)
+      blankslate (>= 2.1.2.3)
+      ffi (~> 1.0.7)
     sass (3.1.4)
     sexp_processor (3.0.5)
     shoulda-matchers (1.0.0.beta3)
@@ -162,11 +172,13 @@ DEPENDENCIES
   database_cleaner
   devise
   fabrication
+  grit
   haml-rails
   hpricot
   jquery-rails
   mysql2 (< 0.3)
   newrelic_rpm
+  pygments.rb (= 0.2.3)
   rails (= 3.0.9)
   rails3-generators
   rspec-rails (~> 2.4)
