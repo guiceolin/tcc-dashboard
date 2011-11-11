@@ -16,6 +16,18 @@ Dashboard::Application.routes.draw do
     get 'finish', :on => :member
   end
   resources :projects do
+
+    get 'tree', :on => :member
+    get "tree/:commit_id" => "projects#tree"
+    get "tree/:commit_id/:path" => "projects#tree",
+      :as => :tree_file,
+      :constraints => {
+      :id => /[a-zA-Z0-9_\-]+/,
+      :commit_id => /[a-zA-Z0-9]+/,
+      :path => /.*/
+    }
+
+
     get 'users', :on => :member
     get 'set_active', :on => :member
     get 'finish', :on => :member

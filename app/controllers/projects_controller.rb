@@ -99,4 +99,25 @@ class ProjectsController < ActionController::Base
     @project.save
     redirect_to(@project)
   end
+
+  def tree
+    @project = Project.find_by_id(params[:project_id])
+    @repo = @project.repo
+
+    if params[:commit_id].present?
+      @tree = @repo.commits(params[:commit_id]).first.tree
+    else
+      @tree = @repo.tree
+    end
+
+    if params[:path]
+      @tree = @tree / params[:path]
+    end
+
+    if Grit::Tree === @tree
+      render 'tree'
+    else
+      render 'blob'
+    end
+  end
 end

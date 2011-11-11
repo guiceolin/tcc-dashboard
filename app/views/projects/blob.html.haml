@@ -1,0 +1,9 @@
+.project-box
+  %h2
+    = @project.name
+    = '/'
+    = params[:path].gsub('/', ' / ')
+  %p.description
+    .project-code
+      :preserve
+        #{raw @tree.colorize}

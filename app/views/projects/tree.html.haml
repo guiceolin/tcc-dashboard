@@ -1,0 +1,18 @@
+.project-box
+  %h2
+    = @project.name
+    = '/'
+    = params[:path].gsub('/', ' / ')
+  %ul
+    - @tree.trees.each do |tree|
+      - path = params[:path] ? File.join(params[:path], tree.name) : tree.name
+      %li
+        = link_to image_tag('icons/folder.png'), project_tree_file_path(params.merge(:path => path))
+        = link_to tree.name, project_tree_file_path(params.merge(:path => path ))
+    - @tree.blobs.each do |blob|
+      - path = params[:path] ? File.join(params[:path], blob.name) : blob.name
+      %li
+        =link_to image_tag('icons/page.png'), project_tree_file_path(params.merge(:path => path))
+        = link_to blob.name, project_tree_file_path(params.merge(:path => path ))
+
+
