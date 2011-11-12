@@ -14,6 +14,11 @@
     Data Final:
   %p.desc
     = @project.end_date
+  %h3
+    Repositorio:
+  %p.desc
+    = @project.repo_url
+    = link_to image_tag('icons/page_white_go.png'), tree_project_path(@project.id)
 
   %h2
     Colaboradores:
