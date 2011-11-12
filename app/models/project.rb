@@ -25,8 +25,14 @@ class Project < ActiveRecord::Base
     end
   end
 
+  def repo_url
+   "#{GITOSIS['git_user']}@#{GITOSIS['host']}:/#{repo_name}.git"
+  end
+
   def repo
     @repo ||= Grit::Repo.new(GITOSIS['base_path'] + repo_name + '.git')
+  rescue Grit::NoSuchPathError
+    raise 'Repositorio sem arquivos #TODO Fazer uma view aqui'
   end
 
   def repo_name
@@ -42,6 +48,6 @@ class Project < ActiveRecord::Base
   end
 
   def member_keys
-    members.map(&:key_names).flatten
+    members.map(&:pub_keys).flatten
   end
 end
