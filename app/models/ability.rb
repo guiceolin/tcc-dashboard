@@ -20,6 +20,7 @@ class Ability
       can(:set_active, ::Project)  { |p| p.members.include?(user) }
       can(:finish, ::Project)  { |p| p.members.include?(user) }
       can(:update, ::Project) { |p| p.members.include?(user) }
+      can(:tree,   ::Project) { |p| p.members.include?(user) }
 
       can(:read, ::Membership) { |m| m.project.members.include?(user) }
       can(:manage, ::Task) { |t| t.project.members.include?(user) }
