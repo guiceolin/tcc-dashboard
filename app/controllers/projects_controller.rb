@@ -101,7 +101,7 @@ class ProjectsController < ActionController::Base
   end
 
   def tree
-    @project = Project.find_by_id(params[:project_id])
+    @project = Project.find_by_id(params[:id])
     @repo = @project.repo
 
     if params[:commit_id].present?
@@ -109,6 +109,8 @@ class ProjectsController < ActionController::Base
     else
       @tree = @repo.tree
     end
+
+    @commit = @repo.head.name
 
     if params[:path]
       @tree = @tree / params[:path]

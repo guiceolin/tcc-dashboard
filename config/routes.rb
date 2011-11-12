@@ -18,8 +18,9 @@ Dashboard::Application.routes.draw do
   resources :projects do
 
     get 'tree', :on => :member
-    get "tree/:commit_id" => "projects#tree"
+    get "tree/:commit_id" => "projects#tree", :on => :member
     get "tree/:commit_id/:path" => "projects#tree",
+      :on => :member,
       :as => :tree_file,
       :constraints => {
       :id => /[a-zA-Z0-9_\-]+/,
