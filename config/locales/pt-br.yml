@@ -1,6 +1,11 @@
 # encoding: UTF-8
 # pt-BR translations for Ruby on Rails
 "pt-BR":
+
+  actions:
+    update: Atualização
+    create: Criação
+    destroy: Deleção
   will_paginate:
     previous_label: Anterior
     next_label: Próximo
@@ -30,7 +35,7 @@
       - :day
       - :month
       - :year
-  
+
   time:
     formats:
       default: "%A, %d de %B de %Y, %H:%M h"
@@ -96,7 +101,7 @@
       decimal_units:
         format: "%n %u"
         units:
-          unit: ""     
+          unit: ""
           thousand: "mil"
           million:
             one: milhão
@@ -218,7 +223,20 @@
 
       full_messages:
         format: "%{attribute}%{message}"
+    attributes:
+      project:
+        name: Nome
+        description: Descrição
+        master_project_id: ID do Projeto Guarda-chuva
+        finished: Finalizado
+        id: ID
+        created_at: Criado em
+        updated_at: Atualizado em
+
     models:
+      project:
+        one: Projeto
+        other: Projetos
       user:
         one: Usuário
         other: Usuários

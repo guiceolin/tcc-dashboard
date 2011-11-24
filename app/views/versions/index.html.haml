@@ -1,0 +1,32 @@
+.version-box
+  %table.version
+    %tr
+      %th.element Usuário
+      %th.element Ação
+      %th.element Objeto
+      %th.element Id
+      %th.element De
+      %th.element Para
+    - @versions.each do |version|
+      %tr{:class => cycle(:even,:odd) }
+        %td.element= User.find_by_id(version.whodunnit)
+        %td.element= t(version.event, :scope => :actions)
+        %td.element= t(version.item_type.downcase, :scope => [:activerecord, :models], :count => 1)
+        %td.element= version.item_id
+        - if version.changeset.present?
+          %td.big-element
+            - version.changeset.each do |key,value|
+              = t(key.to_sym, :scope => [:activerecord, :attributes, :project]) + ':'
+              = value[0]
+          %td.big-element
+            - version.changeset.each do |key,value|
+              = t(key.to_sym, :scope => [:activerecord, :attributes, :project]) + ':'
+              = value[1]
+        - else
+          %td.big-element
+            %pre= formated_version(version)
+          %td.big-element
+            %pre= formated_version(version.next)
+
+
+  = will_paginate @versions
