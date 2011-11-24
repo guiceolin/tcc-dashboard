@@ -42,6 +42,7 @@ Dashboard::Application.routes.draw do
     end
   end
 
+  resources :versions
   #resources :roles
   get 'roles/:id' => 'roles#edit', :as => :edit_role
   put 'roles/:id' => 'roles#update', :as => :edit_role
