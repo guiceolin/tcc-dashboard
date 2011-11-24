@@ -14,6 +14,7 @@ gem 'will_paginate'
 gem 'carrierwave'
 gem 'grit'
 gem "pygments.rb", "0.2.3"
+gem 'paper_trail'
 
 
 group :development do

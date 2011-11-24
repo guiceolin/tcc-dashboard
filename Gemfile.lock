@@ -92,6 +92,8 @@ GEM
       net-ssh (>= 1.99.1)
     newrelic_rpm (3.1.0)
     orm_adapter (0.0.5)
+    paper_trail (2.5.0)
+      rails (~> 3)
     polyglot (0.3.2)
     pygments.rb (0.2.3)
       rubypython (>= 0.5.1)
@@ -178,6 +180,7 @@ DEPENDENCIES
   jquery-rails
   mysql2 (< 0.3)
   newrelic_rpm
+  paper_trail
   pygments.rb (= 0.2.3)
   rails (= 3.0.9)
   rails3-generators
