@@ -51,4 +51,8 @@ class Project < ActiveRecord::Base
   def member_keys
     members.map(&:pub_keys).flatten
   end
+
+  def calendar_string
+    CGI.escape("#{name} #{master_project.end_date.to_s}")
+  end
 end

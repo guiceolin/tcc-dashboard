@@ -28,6 +28,6 @@ class User < ActiveRecord::Base
   end
 
   def to_s
-    "#{first_name}<#{email}>"
+    "#{full_name}"
   end
 end

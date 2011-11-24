@@ -7,4 +7,7 @@ class MasterProject < ActiveRecord::Base
     projects.each(&:finish)
     messages.each(&:archive)
   end
+  def calendar_string
+    CGI.escape("#{name} #{end_date.to_s}")
+  end
 end
