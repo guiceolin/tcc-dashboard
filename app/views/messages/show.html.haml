@@ -1,17 +1,17 @@
-.project-box
-  %p.header
-    Mensagem
-  %h2
-    De: #{@message.sender}
-  %p.links
-    = link_to 'Marcar como não lida', unread_message_path(@message), :method => :put if @message.sender != current_user
-
-  %h3
-    Assunto:
-  %p.desc
-    = @message.subject
-  %h3
-    Mensagem:
-  %p.desc
-    = @message.body
+.whitebox.span16
+  %h1
+    = @delivery.message.subject
+  .row
+    .span8
+      %h4
+        De: #{@delivery.message.sender}
+        %small
+          = I18n.l(@delivery.message.created_at, :format => :short)
+    .span5.offset3
+      = link_to 'Marcar como não lida', unread_message_path(@delivery.message), :method => :put, :class => 'btn primary' if @delivery.message.sender != current_user
+      = link_to 'Arquivar', archive_message_path(@delivery.message), :method => :put, :class => 'btn info' unless @delivery.archived?
+      = link_to 'Desarquivar', unarchive_message_path(@delivery.essage), :method => :put, :class => 'btn info' if @delivery.archived?
+  .row
+    .span16
+      = @delivery.message.body
 

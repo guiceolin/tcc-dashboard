@@ -10,6 +10,8 @@ Dashboard::Application.routes.draw do
     member do
       put 'unread'
       put 'read'
+      put 'archive'
+      put 'unarchive'
     end
   end
   resources :master_projects do

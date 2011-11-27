@@ -1,0 +1,7 @@
+.row
+  .span12
+    %h1
+      Mensagens de #{current_user}
+  .span4
+    = link_to image_tag('icons/email_add.png') + ' Nova mensagem', new_message_path, :class => 'btn large success'
+

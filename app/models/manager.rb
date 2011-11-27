@@ -16,6 +16,6 @@ class Manager < Member
   end
 
   def project_list
-    master_projects.collect { |mp| [mp.name, mp.id]}
+    master_projects
   end
 end

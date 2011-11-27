@@ -1,11 +1,22 @@
-.project-box
-  %p.header
-    Nova Mensagem
+.whitebox.span16
+  .row
+    .span16
+      = form_for(@message) do |f|
+        %fieldset
+          %legend
+            %h2 Nova Mensagem
+          =label_tag 'Destinatários'
+          .input
+            =f.select :receiver_ids, options_from_collection_for_select(User.all, :id, :to_s, params[:sender]),{}, :multiple => true
+          =label_tag 'Assunto'
+          .input
+            =f.text_field :subject, :class => 'span13'
+          =label_tag 'Mensagem'
+          .input
+            =f.text_area :body, :class => 'span13'
 
-  = simple_form_for(@message) do |f|
-    .inputs
-      = f.association :receivers, :label => "Destinatarios"
-      = f.input :subject, :label => 'Assunto'
-      = f.input :body,    :label => "Mensagem"
-    .action
-      = f.button :submit, 'Enviar'
+        .row
+          .span4.offset11
+            = f.submit 'Enviar', :class => 'btn success'
+            = link_to 'Limpar', new_message_path, :class => 'btn danger'
+            = link_to 'Voltar', messages_path, :class => 'btn'

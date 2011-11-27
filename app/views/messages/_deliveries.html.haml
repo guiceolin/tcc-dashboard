@@ -1,0 +1,29 @@
+.row
+  .span10
+    %h2
+      Mensagens recebidas
+  = render 'search_form'
+%table.condensed-table.zebra-striped
+  %thead
+    %tr
+      %th Assunto
+      %th Remetente
+      %th Data
+      %th Ações
+  %tbody
+    - @deliveries.each do |d|
+      %tr
+        %td
+          - if d.unread?
+            =link_to "<span class='label success'>NOVA</span>".html_safe, message_path(d.message)
+          =link_to d.message.subject, message_path(d.message)
+        %td= d.user
+        %td= I18n.l(d.created_at, :format => :short)
+        %th
+          =link_to image_tag('icons/email_open.png'), read_message_path(d.message), :method => :put if d.unread?
+          =link_to image_tag('icons/email.png'), unread_message_path(d.message), :method => :put unless d.unread?
+          =link_to image_tag('icons/folder.png'), archive_message_path(d.message), :method => :put unless d.archived?
+          =link_to image_tag('icons/folder_go.png'), unarchive_message_path(d.message), :method => :put if d.archived?
+
+
+= will_paginate @deliveries, :param_name => :deliveries_page

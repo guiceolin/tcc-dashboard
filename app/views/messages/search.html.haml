@@ -1,17 +1,4 @@
-.project-box
-  %p.header
-    Mensagens de #{current_user}
-  %p.links
-    = link_to image_tag('icons/email_add.png'), new_message_path
-  %h2 
-    Mensagens recebidas
-    = render 'search_form'
-  %ul
-    - @deliveries.each do |delivery|
-      %li{:class => delivery.read ? 'read' : 'unread'}
-        %p.desc
-          = link_to delivery.message.subject, message_path(delivery.message)
-        %p.links
-          = link_to image_tag('icons/email_open.png'), read_message_path(delivery.message), :method => :put if delivery.unread?
-    .pagination
-      = will_paginate @deliveries, :param_name => :deliveries_page
+.whitebox.span16
+  = render 'header'
+  = render 'deliveries'
+

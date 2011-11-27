@@ -5,7 +5,7 @@ class Member < User
                       :conditions => 'memberships.manager = 0'
 
   def project_list
-    projects.collect {|project| [project.name, project.id]}
+    projects
   end
 
   def current_master_project

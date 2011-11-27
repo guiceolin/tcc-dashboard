@@ -1,18 +1,34 @@
 =form_tag '/messages/search', :method => :get do
-  = label_tag 'De'
-  = text_field_tag :from, params[:from], :class => 'datepicker', :size => 10
-  = label_tag 'Até'
-  = text_field_tag :to, params[:to], :class => 'datepicker', :size => 10
-  = label_tag 'Remetente'
-  = select_tag :sender, options_from_collection_for_select(User.where(:id => current_user.deliveries.map(&:message).map(&:sender_id).uniq), :id, :to_s, params[:sender]), :include_blank => true
-  = check_box_tag :read, 1, params[:read]
-  = label_tag 'Lida?'
-  %br
-  = label_tag 'Projeto Guarda chuva: '
-  = select_tag :master_project, options_from_collection_for_select(current_user.projects.map(&:master_project).uniq, :id, :name, current_user.current_master_project.id), :include_blank => true
-  = check_box_tag :archived, 1, params[:archived]
-  = label_tag 'Arquivadas? '
-  = label_tag  'Por Pagina: '
-  = select_tag :per_page, options_for_select([5,10,20,50], 10)
-  = submit_tag 'Filtrar'
-
+  %fieldset
+    .row
+      .span8
+        =label_tag 'Data'
+        .input.clearfix
+          .inline-inputs
+            = text_field_tag :from, params[:from], :class => 'datepicker small', :size => 10
+            %span{:style => 'font-size: 10pt'} Até
+            = text_field_tag :to, params[:to], :class => 'datepicker small', :size => 10
+            %span.help-block Datas no horário de Brasilia.
+        .input.clearfix
+          %ul.inputs-list
+            %li
+              %label
+                = check_box_tag :read, 1, params[:read]
+                %span Incluir lidas
+              %label
+                = check_box_tag :archived, 1, params[:archived]
+                %span Incluir arquivadas
+      .span8
+        = label_tag 'Remetente'
+        .input.clearfix
+          = select_tag :sender, options_from_collection_for_select(User.where(:id => current_user.deliveries.map(&:message).map(&:sender_id).uniq), :id, :to_s, params[:sender]), :include_blank => true
+        = label_tag 'Projeto Guarda chuva: '
+        .input.clearfix
+          = select_tag :master_project, options_from_collection_for_select(current_user.projects.map(&:master_project).uniq, :id, :name, current_user.current_master_project.id), :include_blank => true
+        = label_tag  'Por Pagina: '
+        .input.clearfix
+          = select_tag :per_page, options_for_select([5,10,20,50], 10)
+    .row
+      .span3.offset6
+        = submit_tag 'Filtrar', :class => 'btn primary'
+        = link_to 'Limpar', messages_path, :class => 'btn'
