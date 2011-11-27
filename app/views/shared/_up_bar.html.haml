@@ -1,19 +1,36 @@
-.up-bar
-  %p.logo
-    =link_to 'DashBoard', desktop_path
-  - if flash[:notice]
-    %p.notice= notice
-  - if flash[:alert]
-    %p.alert= alert
-  %p.user-info
-    = select_tag 'active_project', options_for_select(current_user.project_list, current_user.current_project.id ), :class => 'active_project_select'
-    = link_to image_tag('icons/email.png'), messages_path
-    = link_to image_tag('icons/key.png'), keys_path
-    = current_user
-    = link_to t('sign_out'), destroy_user_session_path
-:javascript
-  $(document).ready(function() {
-    $(".active_project_select").change(function () {
-      window.location = 'projects/' +  $(".active_project_select option:selected").val() + '/set_active'
-    });
-  });
+.topbar
+  .topbar-inner
+    .container
+      %h3
+        =link_to 'DashBoard', desktop_path
+      %ul.nav
+        %li
+          =link_to 'Tarefas', project_tasks_path(current_user.current_project)
+        %li
+          =link_to 'Mensagens', messages_path
+        %li
+          =link_to 'Repositório', tree_project_path(current_user.current_project)
+        %li
+          =link_to 'Chaves', keys_path
+      %ul.nav.secondary-nav
+        %li.dropdown
+          %a.dropdown-toggle{:href => '#'}=current_user.current_project.name
+          %ul.dropdown-menu
+            -current_user.project_list.each do |project|
+              %li
+                =link_to project.name, set_active_project_path(project)
+        %li
+          =link_to current_user, edit_user_registration_path
+        %li
+          =link_to 'Sair', destroy_user_session_path
+
+
+
+- if flash[:notice]
+  .alert-message.success
+    %a{:class=>'close', :href=>'#'}×
+    %p= flash[:notice]
+- if flash[:alert]
+  .alert-message.error
+    %a{:class=>"close", :href=>"#"}×
+    %p= flash[:alert]

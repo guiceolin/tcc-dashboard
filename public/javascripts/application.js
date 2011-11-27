@@ -1,8 +1,7 @@
 $(document).ready(function() {
-  $(".active_project_select").change(function () {
-    window.location = 'projects/' +  $(".active_project_select option:selected").val() + '/set_active'
-  });
+  $('.topbar').dropdown()
   $( ".datepicker" ).datepicker();
+  $('.alert-message').alert();
 });
 jQuery(function($){
 	$.datepicker.regional['pt-BR'] = {
@@ -25,3 +24,4 @@ jQuery(function($){
 		yearSuffix: ''};
 	$.datepicker.setDefaults($.datepicker.regional['pt-BR']);
 });
+

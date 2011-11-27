@@ -3,9 +3,26 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-@import "compass/reset"
+//@import "compass/reset"
 @import "compass/css3"
 @import 'colors'
+
+.whitebox
+  background: rgba(white, 0.90)
+  @include border-radius(10px)
+  margin: 20px auto
+  font-family: arial, helvetica
+  padding: 20px
+
+.bar
+  border-bottom: 1px dashed black
+
+html body
+  padding-top: 40px
+  background: image-url("wood-background.jpg") top center no-repeat fixed
+  font-family: arial, helvetica
+
+
 
 .version-box
   background: rgba(white, 0.7)
@@ -70,10 +87,10 @@ table.version
 .project-box
   background: rgba(white, 0.7)
   @include border-radius(10px)
-  width: 80%
-  margin: 0 auto
+  //width: 80%
+  //margin: 0 auto
   font-family: arial, helvetica
-  padding: 20px
+  //padding: 20px
 
   h2
     margin:
@@ -124,45 +141,6 @@ table.version
 .content
   margin: 0 auto
   width: 80%
-  .up-bar
-    height: 100px
-    p.logo
-      float: left
-
-      padding-top: 15px
-      a
-        color: black
-        text:
-          decoration: none
-        font:
-          size: 40px
-          weight: bold
-        letter-spacing: -2px
-    p.user-info
-      margin: 0px
-      width: auto
-      float: right
-      background: rgba(255,255,255,0.3)
-      @include border-radius(0 0 10px 10px)
-      padding: 20px
-      float: right
-    p.notice
-      float: left
-      margin-left: 30px
-      padding: 20px
-      background: rgba(green, 0.3)
-      @include border-radius(0 0 10px 10px)
-      color: white
-      text-align: center
-    p.alert
-      float: left
-      margin-left: 30px
-      padding: 20px
-      background: rgba(red, 0.3)
-      @include border-radius(0 0 10px 10px)
-      color: white
-      text-align: center
-
   .projects
     background: rgba(white, 0.7)
     @include border-radius(10px)
@@ -194,9 +172,7 @@ table.version
     padding: 5px
     width: auto
 
-body
-  background: image-url("wood-background.jpg") top center no-repeat fixed
-  font-family: arial, helvetica
+
 
 .add-task
   margin: 14% auto
