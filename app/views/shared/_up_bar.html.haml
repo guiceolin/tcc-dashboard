@@ -4,12 +4,16 @@
       %h3
         =link_to 'DashBoard', desktop_path
       %ul.nav
-        %li
-          =link_to 'Tarefas', project_tasks_path(current_user.current_project)
+        - if Member === current_user
+          %li
+            =link_to 'Tarefas', project_tasks_path(current_user.current_project)
+          %li
+            =link_to 'Repositório', tree_project_path(current_user.current_project)
+        - elsif Manager === current_user
+          %li
+            =link_to 'Projetos Guarda-chuva', master_projects_path
         %li
           =link_to 'Mensagens', messages_path
-        %li
-          =link_to 'Repositório', tree_project_path(current_user.current_project)
         %li
           =link_to 'Chaves', keys_path
       %ul.nav.secondary-nav
