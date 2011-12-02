@@ -1,4 +1,4 @@
-.version-box
+.whitebox.span16
   %table.version
     %tr
       %th.element Usuário
@@ -26,7 +26,10 @@
           %td.big-element
             %pre= formated_version(version)
           %td.big-element
-            %pre= formated_version(version.next)
+            - if version.event == 'create'
+              %pre= formated_object(version.item_type.constantize.find_by_id(version.item_id))
+            - else
+              %pre= formated_version(version.next)
 
 
   = will_paginate @versions
