@@ -19,9 +19,12 @@ class TasksController < ApplicationController
     @task = Task.new(params[:task])
     @task.project_id = params[:project_id]
 
-    @task.save
-    flash[:notice] = 'Tarefa criada'
-    redirect_to project_path(params[:project_id])
+    if @task.save
+      flash[:notice] = 'Tarefa criada'
+      redirect_to project_path(params[:project_id])
+    else
+      render :new
+    end
   end
 
   def start
