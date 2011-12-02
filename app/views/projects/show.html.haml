@@ -1,46 +1,90 @@
-.project-box
-  %p.header
+.whitebox.span16
+  %h1
     = @project.name
-  %h2
-    Informações:
-    %p.links
-      = link_to image_tag('icons/application_edit.png'), edit_project_path(@project), :title => 'Editar projeto' if can? :edit, @project
-      = link_to image_tag('icons/application_go.png'), finish_project_path(@project), :title => 'Entregar projeto'
+  = "<span class='label success'>Entregue!</span>".html_safe if @project.finished?
+  .row
+    .span12
+      %h2
+        Informações:
+    .span4
+      %p.links
+        = link_to image_tag('icons/application_edit.png').html_safe + " Editar" , edit_project_path(@project), :title => 'Editar projeto', :class => 'btn' if can? :edit, @project
+        = link_to image_tag('icons/application_go.png').html_safe + " Entregar", finish_project_path(@project), :title => 'Entregar projeto', :class => 'btn success' if can?(:finish, @project) && !@project.finished?
   %h3
     Descriçao:
   %p.desc
     = @project.description
   %h3
     Data Final:
-  %p.desc
-    = @project.end_date
+  .row
+    %p.span12
+      = @project.end_date
+    %span.span4
+      = add_to_calendar @project, :class => 'btn primary', :label => ' Adicionar ao Calendario'
   %h3
     Repositorio:
   %p.desc
     = @project.repo_url
     = link_to image_tag('icons/page_white_go.png'), tree_project_path(@project.id)
-
-  %h2
-    Colaboradores:
-    %p.links
-      = link_to image_tag('icons/user_add.png'), new_project_membership_path(@project)
+  .row
+    .span12
+      %h2
+        Colaboradores:
+    .span4
+      = link_to image_tag('icons/user_add.png').html_safe + " Adicionar colaborador", new_project_membership_path(@project), :class => 'btn primary' if can? :manage_users, @project
   %ul.users
     - @project.memberships.each do |membership|
       %li.user
-        %p.desc
+        %p
+          = link_to image_tag('icons/delete.png'), { :controller => :memberships, :action => :destroy, :id => membership, :project_id => @project }, :method => :delete, :confirm => 'Tem certeza?' if can? :destroy, membership
           = membership.user
-        %p.links
-          = link_to image_tag('icons/user_edit.png'), edit_project_membership_path(membership.project,membership) if can? :edit, membership
-          = link_to image_tag('icons/user_delete.png'), { :controller => :memberships, :action => :destroy, :id => membership, :project_id => @project }, :method => :delete, :confirm => 'Tem certeza?' if can? :destroy, membership
-  %h2
-    Tarefas:
-    %p.links
-      = link_to image_tag('icons/clock_add.png'), new_project_task_path(@project)
-  %ul.tasks
-    - @project.tasks.each do |task|
-      %li.task
-        %p.desc
-          = link_to task, project_task_path(@project, task)
-        %p.links
-          = link_to image_tag('icons/clock_stop.png'), complete_project_task_path(task.project, task), :method => :put if task.started?
-          = link_to image_tag('icons/clock_play.png'), start_project_task_path(task.project, task), :method => :put unless task.started? || task.completed?
+  .row
+    .span12
+      %h2
+        Tarefas:
+    .span4
+      %p.links
+        = link_to image_tag('icons/clock_add.png').html_safe + " Adicionar tarefa" , new_project_task_path(@project), :class => 'btn primary' if can? :add_task, @project
+  %table
+    %thead
+      %tr
+        %th Andamento
+        %th Descrição
+        %th Ações
+    %tbody
+      - @project.tasks.each do |task|
+        %tr
+          %td.span3
+            = "<span class='label success'>Concluída</span>".html_safe if task.completed?
+            = "<span class='label warning'>Iniciada</span>".html_safe if task.started?
+            = "<span class='label important'>Não iniciada</span>".html_safe unless task.completed? || task.started?
+          %td
+            = link_to task, project_task_path(@project, task)
+          %td.span3
+            //= add_to_calendar task
+            = link_to image_tag('icons/clock_stop.png').html_safe + ' Finalizar', complete_project_task_path(task.project, task), :method => :put if task.started? && can?(:manage, task)
+            = link_to image_tag('icons/clock_play.png').html_safe + ' Iniciar', start_project_task_path(task.project, task), :method => :put if can?(:manage, task) && !task.started? && !task.completed?
+  .row
+    .span12
+      %h2
+        Documentos:
+    .span4
+      %p.links
+      = link_to image_tag('icons/page_white_add.png').html_safe + ' Adicionar Documento', new_project_document_path(@project), :class => 'btn primary' if can? :add_document, @project
+  %table
+    %thead
+      %tr
+        %th Nome
+        %th Ações
+    %tbody
+      - @project.documents.each do |doc|
+        %tr
+          %td
+            = image_tag "icons/page_white_get.png"
+            = link_to doc.file_identifier, project_document_path(doc.project,doc)
+            %small
+              %em= doc.description
+          %td.span3
+            = link_to image_tag('icons/page_white_edit.png'), edit_project_document_path(@project,doc) if can? :edit, doc
+            = link_to image_tag('icons/page_white_delete.png'), {:controller => :documents, :action => :destroy, :id => doc.id, :project_id => doc.project}, :method => :delete, :confirm => 'Tem certeza?' if can? :destroy, doc
+

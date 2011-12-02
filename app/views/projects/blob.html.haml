@@ -1,9 +1,6 @@
-.project-box
+.whitebox.span16
   %h2
-    = @project.name
-    = '/'
-    = params[:path].gsub('/', ' / ')
-  %p.description
-    .project-code
-      :preserve
-        #{raw @tree.colorize}
+    = "#{breadcrumb(@project,@commit,params[:path])}".html_safe
+  .colorcode
+    :preserve
+      #{raw @tree.colorize}

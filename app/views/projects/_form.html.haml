@@ -1,18 +1,18 @@
-.project-form
-  = simple_form_for(@project) do |f|
-    - if @project.errors.any?
-      #error_explanation
-        %h2
-          = pluralize(@project.errors.count, "error")
-          prohibited this project from being saved:
+= simple_form_for(@project) do |f|
+  %fieldset
+    -if @project.new_record?
+      .clearfix{:class => error_for(@project, :name)}
+        = f.label :name, 'Nome'
+        .input
+          =f.text_field :name, :class => 'xxlarge'
+          =error_message_for @project, :name
+    .clearfix{:class => error_for(@project,:description)}
+      = f.label :description, 'Descrição'
+      .input
+        =f.text_area :description, :class => "xxlarge"
+        =error_message_for @project, :description
 
-        %ul
-          - @project.errors.full_messages.each do |msg|
-            %li= msg
+    .row
+      .span3.offset12
+        = f.button :submit, :class => 'btn success'
 
-    .inputs
-      = f.input :name, :label => 'Nome do projeto: '
-      = f.input :description, :label => 'Descriçao do projeto: '
-
-    .actions
-      = f.button :submit

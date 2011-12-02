@@ -1,18 +1,24 @@
-.project-box
-  %h2
+.whitebox.span16
+  %h1
+    Repositório para
     = @project.name
-    = '/'
-    = params[:path] ? params[:path].gsub('/', ' / ') : ''
-  %ul
-    - @tree.trees.each do |tree|
-      - path = params[:path] ? File.join(params[:path], tree.name) : tree.name
-      %li
-        = link_to image_tag('icons/folder.png'), tree_file_project_path(@project, :path => path, :commit_id => @commit )
-        = link_to tree.name, tree_file_project_path(@project, :path => path, :commit_id => @commit )
-    - @tree.blobs.each do |blob|
-      - path = params[:path] ? File.join(params[:path], blob.name) : blob.name
-      %li
-        =link_to image_tag('icons/page.png'), tree_file_project_path(@project, :path => path, :commit_id => @commit )
-        = link_to blob.name, tree_file_project_path(@project, :path => path, :commit_id => @commit )
+  %h2
+    = "#{breadcrumb(@project, @commit, params[:path])}".html_safe
+  %table.zebra-striped
+    %tbody
+      - @tree.trees.each do |tree|
+        %tr
+          %td
+            - path = params[:path] ? File.join(params[:path], tree.name) : tree.name
+            = link_to image_tag('icons/folder.png'), tree_file_project_path(@project, :path => path, :commit_id => @commit )
+            = link_to tree.name, tree_file_project_path(@project, :path => path, :commit_id => @commit )
+
+      - @tree.blobs.each do |blob|
+        %tr
+          %td
+            - path = params[:path] ? File.join(params[:path], blob.name) : blob.name
+            =link_to image_tag('icons/page.png'), tree_file_project_path(@project, :path => path, :commit_id => @commit )
+            = link_to blob.name, tree_file_project_path(@project, :path => path, :commit_id => @commit )
+
 
 
