@@ -1,7 +1,7 @@
 class VersionsController < ApplicationController
 
   def index
-    @versions = Version.paginate(:per_page => 10, :page => params[:page])
+    @versions = Version.paginate(:per_page => 10, :page => params[:page]).order('created_at DESC')
   end
 
   def show
