@@ -1,5 +1,27 @@
-%ul
-  - @masters.each do |master|
-    %li
-      %p= master.name
-      %p= master.description
+.whitebox.span16
+  .row
+    .span13
+      %h1
+        Projetos Guarda-Chuvas
+    .span3
+      = link_to 'Adicionar', new_master_project_path, :class => 'btn primary'
+
+  %table
+    %thead
+      %tr
+        %th Nome
+        %th Descrição
+        %th Data Final
+        %th Ações
+    %tbody
+      - @masters.each do |master|
+        %tr
+          %td
+            = link_to master.name, master_project_path(master)
+          %td
+            = master.description
+          %td
+            = master.end_date
+          %td
+            = link_to image_tag('icons/pencil.png'), edit_master_project_path(master), :title => 'Editar'
+            = link_to image_tag('icons/application_go.png'), finish_master_project_path(master), :title => 'Finalizar' unless master.end_date

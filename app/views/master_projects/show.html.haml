@@ -1,12 +1,35 @@
-.project-box
-  %p.header
-    = @master.name
-  %h2
-    Informações:
-    %p.links
-      = link_to image_tag('icons/application_edit.png'), edit_master_project_path(@master), :title => 'Editar Projeto' if can? :edit, @master
+.whitebox.span16
+  .row
+    .span12
+      %h1
+        = @master.name
+    .span4
+      = link_to 'Tornar atual', set_active_project_path(@master), :class => 'btn success' unless @master == current_user.current_master_project
+  .row
+    .span12
+      %h2
+        Informações:
+    .span4
+      = link_to image_tag('icons/application_edit.png').html_safe + ' Editar', edit_master_project_path(@master), :title => 'Editar projeto', :class => 'btn primary' if can? :edit, @master
   %h3
-    Descrição:
-  %p.desc
+    Descriçao:
+  %p
     = @master.description
-
+  .row
+    %h3.span12
+      Data Final:
+    %span.span4
+      = add_to_calendar @master, :class => 'btn primary', :label => 'Adicionar ao Calendario'
+  %p= I18n.l(@master.end_date, :format => :short)
+  .row
+    .span12
+      %h2
+        Projetos:
+    .span4
+      = link_to image_tag('icons/application_add.png').html_safe + ' Adicionar', new_project_path, :class => 'btn'
+      = link_to image_tag('icons/application_go.png').html_safe + ' Finalizar', finish_master_project_path(@master), :title => 'Encerrar projeto', :class => 'btn success'
+  %ul
+    - @master.projects.each do |project|
+      %li
+        %p
+          = link_to project.name, project

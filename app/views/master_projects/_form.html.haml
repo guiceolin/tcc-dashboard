@@ -1,9 +1,21 @@
-.project-form
-  = simple_form_for(@master) do |f|
-    .inputs
-      = f.input :name, :label => 'Nome do Projeto: '
-      = f.input :description, :label => 'Descrição do projeto: '
-      = f.input :end_date, :label => 'Data final: '
-
-    .actions
-      = f.button :submit
+= simple_form_for(@master) do |f|
+  %fieldset
+    - if @master.new_record?
+      .clearfix{:class => error_for(@master,:name)}
+        = f.label :name, 'Nome'
+        .input
+          = f.text_field :name, :class => 'xxlarge'
+          = error_message_for @master, :name
+    .clearfix{:class => error_for(@master, :name)}
+      = f.label :description, 'Descrição do projeto'
+      .input
+        = f.text_area :description, :class => 'xxlarge'
+        = error_message_for @master, :description
+    .clearfix{:class => error_for(@master, :date)}
+      = f.label :end_date, :label => 'Data final'
+      .input
+        = f.date_select :end_date
+        = error_message_for @master, :end_date
+    .row
+      .span3.offset12
+        = f.button :submit, :class => 'btn success'
