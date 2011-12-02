@@ -1,8 +1,13 @@
-.white-box
-  %p.header
-    Adicionar tarefa -
-    = @project.name
-  .form
-    - simple_form_for @task, :url => project_tasks_path, :method => :put do |f|
-      = f.input :description, :label => 'Descrição:'
-      = f.button :submit
+.whitebox.span16
+  %h1
+    Adicionar tarefa
+  - simple_form_for @task, :url => project_tasks_path, :method => :put do |f|
+    %fieldset
+      .clearfix{:class => error_for(@task,:description)}
+        = f.label :description, 'Descrição'
+        .input
+          = f.text_field :description, :class => 'xxlarge'
+          = error_message_for @task, :description
+      .row
+        .span3.offset12
+          = f.button :submit, :class => 'btn success'

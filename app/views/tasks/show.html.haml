@@ -1,12 +1,14 @@
-.project-box
-  %p.header
-    = link_to @task.project.name, @task.project
-  %h2
-    %p.desc
-      Gerenciar Tarefa
-    %p.links
-      = link_to image_tag('icons/clock_stop.png'), complete_project_task_path(@task.project, @task), :method => :put if @task.started?
-      = link_to image_tag('icons/clock_play.png'), start_project_task_path(@task.project, @task), :method => :put unless @task.started? || @task.completed?
+.whitebox.span16
+  .row
+    .span12
+      %h1
+        = @task
+      = "<span class='label success'>Concluída</span>".html_safe if @task.completed?
+      = "<span class='label warning'>Iniciada</span>".html_safe if @task.started?
+      = "<span class='label important'>Não iniciada</span>".html_safe unless @task.completed? || @task.started?
+    .span3
+      = link_to image_tag('icons/clock_stop.png').html_safe + ' Finalizar', complete_project_task_path(@task.project, @task), :method => :put, :class => 'btn success' if @task.started?
+      = link_to image_tag('icons/clock_play.png').html_safe + ' Iniciar', start_project_task_path(@task.project, @task), :method => :put, :class => 'btn primary' unless @task.started? || @task.completed?
   %h3
     Descrição da tarefa:
   %p.desc
@@ -22,4 +24,4 @@
   %h3
     Usuário atribuido:
   %p.desc
-    = @task.user 
+    = @task.user

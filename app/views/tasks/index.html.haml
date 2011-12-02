@@ -1,14 +1,34 @@
-%table
-  - @tasks.each do |task|
-    %tr
-      %td
-        = task.start_date
-      %td
-        = task.end_date
-      %td
-        = task.description
-      %td
-        = task.status
-      %td
-        = link_to "finalizar", complete_project_task_path(task.project, task), :method => :put if task.started?
-        = link_to 'Iniciar', start_project_task_path(task.project, task), :method => :put unless task.started? || task.completed?
+.whitebox.span16
+  .row
+    .span12
+      %h1
+        Tarefas:
+    .span4
+      %p.links
+        = link_to image_tag('icons/clock_add.png').html_safe + " Adicionar tarefa" , new_project_task_path(@project), :class => 'btn primary' if can? :add_task, @project
+
+  %table
+    %thead
+      %tr
+        %th Andamento
+        %th Data de início
+        %th Data de final
+        %th Descrição
+        %th Ações
+    %tbody
+      - @tasks.each do |task|
+        %tr
+          %td.span3
+            = "<span class='label success'>Concluída</span>".html_safe if task.completed?
+            = "<span class='label warning'>Iniciada</span>".html_safe if task.started?
+            = "<span class='label important'>Não iniciada</span>".html_safe unless task.completed? || task.started?
+          %td
+            = task.start_date
+          %td
+            = task.end_date
+          %td
+            = task.description
+          %td
+            = link_to image_tag('icons/clock_stop.png').html_safe + ' Finalizar', complete_project_task_path(task.project, task), :method => :put if task.started? && can?(:manage, task)
+            = link_to image_tag('icons/clock_play.png').html_safe + ' Iniciar', start_project_task_path(task.project, task), :method => :put if can?(:manage, task) && !task.started? && !task.completed?
+
