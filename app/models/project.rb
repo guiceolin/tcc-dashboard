@@ -1,6 +1,9 @@
 class Project < ActiveRecord::Base
   has_paper_trail
 
+  validates :name, :presence => true, :uniqueness => true
+  validates :description, :presence => true
+
   belongs_to :master_project
 
   has_many :memberships
@@ -13,8 +16,6 @@ class Project < ActiveRecord::Base
                       :conditions => 'memberships.manager = 1'
   has_many :tasks
   has_many :documents
-
-  validates :name, :presence => true
 
   delegate :end_date, :to => :master_project
 
@@ -48,6 +49,9 @@ class Project < ActiveRecord::Base
     self.finished = true
   end
 
+  def finished?
+    finished
+  end
   def member_keys
     members.map(&:pub_keys).flatten
   end
