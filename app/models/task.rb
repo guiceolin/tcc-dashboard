@@ -2,6 +2,7 @@ class Task < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
 
+  validates :description, :presence => true
   def start
     self.start_date.blank? && !!(self.start_date = Date.today)
   end
@@ -29,7 +30,11 @@ class Task < ActiveRecord::Base
   end
 
   def to_s
-    "#{description} - #{status}"
+    description
+  end
+
+  def calendar_string
+    CGI.escape("#{description} #{project.end_date}")
   end
 
 end
