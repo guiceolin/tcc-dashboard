@@ -6,13 +6,20 @@ class Ability
     can :manage, :all if user.is_a? Admin
 
     if user.is_a? Manager
-      can :create,       ::Project
-      can(:manage,       ::Project) { |p| user.current_master_project.projects.include? p }
-      can :manage_users, ::Project
+      cannot :finish
 
-      can(:finish,       ::MasterProject) { |p| user.master_projects.include? p }
+      can :create,        ::Project
+      can(:read,          ::Project) { |p| user.current_master_project.projects.include? p }
+      can(:manage_users,  ::Project) { |p| user.current_master_project.projects.include? p }
 
-      can(:manage,       ::Membership) { |m| user.current_master_project.projects.include? m.project }
+      can(:tree,          ::Project) { |p| user.current_master_project.projects.include? p }
+
+      can(:manage,        ::MasterProject) { |p| user.master_projects.include? p }
+      can(:finish,        ::MasterProject) { |p| user.master_projects.include? p }
+
+      can(:manage,        ::Membership) { |m| user.current_master_project.projects.include? m.project }
+      can(:set_active,    ::Project)
+
     end
     if user.is_a? Member
       can(:read, ::Project) { |p| p.members.include?(user) }
@@ -23,7 +30,11 @@ class Ability
       can(:tree,   ::Project) { |p| p.members.include?(user) }
 
       can(:read, ::Membership) { |m| m.project.members.include?(user) }
+
+      can(:add_task, ::Project) { |p| p.members.include?(user) }
       can(:manage, ::Task) { |t| t.project.members.include?(user) }
+
+      can(:add_document, ::Project) { |p| p.members.include?(user) }
       can(:manage, ::Document) { |t| t.project.members.include?(user) }
     end
 
