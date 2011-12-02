@@ -7,6 +7,8 @@ class Manager < Member
                               :source     => :project,
                               :conditions => 'memberships.manager = true'
 
+  alias projects master_projects
+
   def active_project=(master_project)
     current_master_project= master_project
   end
